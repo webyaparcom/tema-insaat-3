@@ -1,0 +1,40 @@
+{
+  "id": "v3esqnhznl",
+  "name": {
+    "tr": "Kat planları",
+    "en": "Floor plans",
+    "ar": "مخططات الطوابق"
+  },
+  "description": {
+    "tr": "Daire tipleri ile net ve brüt alanlar (örnek proje).",
+    "en": "Unit types with net and gross areas (sample project).",
+    "ar": "أنواع الشقق مع المساحات الصافية والإجمالية (مشروع نموذجي)."
+  },
+  "keyword": {
+    "tr": "kat planı, daire tipi, net alan",
+    "en": "floor plan, unit type, net area",
+    "ar": "مخطط طابق، نوع الشقة، المساحة الصافية"
+  },
+  "path": "kat-planlari",
+  "icon": "architecture",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "0lfmv0",
+      "exg2uo"
+    ],
+    "footer": []
+  },
+  "index": 7,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Kat planları",
+    "en": "Floor plans",
+    "ar": "مخططات الطوابق"
+  },
+  "date": "2026-10-31T14:31:22.505Z",
+  "update": "2026-11-05T22:24:56.407Z"
+}

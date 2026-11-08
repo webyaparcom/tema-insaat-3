@@ -1,0 +1,245 @@
+{
+  "name": "Kurumsal",
+  "path": "kurumsal",
+  "desc": [],
+  "data": [
+    {
+      "id": "misyon",
+      "name": {
+        "tr": "Misyon",
+        "en": "Mission",
+        "ar": "المهمة"
+      },
+      "description": {
+        "tr": "Misyonumuz",
+        "en": "Our mission",
+        "ar": "مهمتنا"
+      },
+      "path": "misyon",
+      "icon": "flag",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [],
+        "footer": []
+      },
+      "index": 0
+    },
+    {
+      "id": "vizyon",
+      "name": {
+        "tr": "Vizyon",
+        "en": "Vision",
+        "ar": "الرؤية"
+      },
+      "description": {
+        "tr": "Vizyonumuz",
+        "en": "Our vision",
+        "ar": "رؤيتنا"
+      },
+      "path": "vizyon",
+      "icon": "visibility",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [],
+        "footer": []
+      },
+      "index": 1
+    },
+    {
+      "id": "kalitepolitikamiz",
+      "name": {
+        "tr": "Kalite Politikamız",
+        "en": "Quality Policy",
+        "ar": "سياسة الجودة"
+      },
+      "description": {
+        "tr": "Kalite politikamız",
+        "en": "Our quality policy",
+        "ar": "سياسة الجودة لدينا"
+      },
+      "path": "kalitepolitikamiz",
+      "icon": "verified",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [],
+        "footer": []
+      },
+      "index": 2
+    },
+    {
+      "id": "gizlilikpolitikasi",
+      "name": {
+        "tr": "Gizlilik Politikası",
+        "en": "Privacy Policy",
+        "ar": "سياسة الخصوصية"
+      },
+      "description": {
+        "tr": "Gizlilik politikası",
+        "en": "Privacy policy",
+        "ar": "سياسة الخصوصية"
+      },
+      "path": "gizlilikpolitikasi",
+      "icon": "privacy_tip",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [],
+        "footer": []
+      },
+      "index": 3
+    },
+    {
+      "id": "kisiselveriler",
+      "name": {
+        "tr": "Kişisel Veriler",
+        "en": "Personal Data",
+        "ar": "البيانات الشخصية"
+      },
+      "description": {
+        "tr": "Kişisel verilerin korunması",
+        "en": "Protection of personal data",
+        "ar": "حماية البيانات الشخصية"
+      },
+      "path": "kisiselveriler",
+      "icon": "shield",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [],
+        "footer": []
+      },
+      "index": 4
+    },
+    {
+      "id": "kullanicahaklari",
+      "name": {
+        "tr": "Kullanıcı Hakları",
+        "en": "User Rights",
+        "ar": "حقوق المستخدم"
+      },
+      "description": {
+        "tr": "Kullanıcı hakları",
+        "en": "User rights",
+        "ar": "حقوق المستخدم"
+      },
+      "path": "kullanicahaklari",
+      "icon": "gavel",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [],
+        "footer": []
+      },
+      "index": 5
+    },
+    {
+      "id": "yasaluyari",
+      "name": {
+        "tr": "Yasal Uyarı",
+        "en": "Legal Notice",
+        "ar": "إشعار قانوني"
+      },
+      "description": {
+        "tr": "Yasal uyarı",
+        "en": "Legal notice",
+        "ar": "إشعار قانوني"
+      },
+      "path": "yasaluyari",
+      "icon": "policy",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [],
+        "footer": []
+      },
+      "index": 6
+    },
+    {
+      "id": "v3esqnhznl",
+      "name": {
+        "tr": "Kat planları",
+        "en": "Floor plans",
+        "ar": "مخططات الطوابق"
+      },
+      "description": {
+        "tr": "Daire tipleri ile net ve brüt alanlar (örnek proje).",
+        "en": "Unit types with net and gross areas (sample project).",
+        "ar": "أنواع الشقق مع المساحات الصافية والإجمالية (مشروع نموذجي)."
+      },
+      "path": "kat-planlari",
+      "icon": "architecture",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "0lfmv0",
+          "exg2uo"
+        ],
+        "footer": []
+      },
+      "index": 7
+    },
+    {
+      "id": "zobfd1eaef",
+      "name": {
+        "tr": "Belgelerimiz",
+        "en": "Certificates",
+        "ar": "الشهادات"
+      },
+      "description": {
+        "tr": "Kalite, çevre, iş güvenliği ve müteahhitlik yetki belgelerimiz (demo).",
+        "en": "Our quality, environmental, safety and contractor authorisation certificates (demo).",
+        "ar": "شهادات الجودة والبيئة والسلامة وتأهيل المقاولين لدينا (تجريبي)."
+      },
+      "path": "belgelerimiz",
+      "icon": "workspace_premium",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "n3xaby",
+          "qbuqz8"
+        ],
+        "footer": []
+      },
+      "index": 8
+    },
+    {
+      "id": "uf16gk9dcp",
+      "name": {
+        "tr": "Tarihçe",
+        "en": "History",
+        "ar": "تاريخنا"
+      },
+      "description": {
+        "tr": "Sarnıç Yapı’nın 2011’den bugüne yolculuğu.",
+        "en": "The Sarnic Yapi journey from 2011 to today.",
+        "ar": "مسيرة صارنيتش يابي منذ عام 2011 حتى اليوم."
+      },
+      "path": "tarihce",
+      "icon": "history",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "2on6oo"
+        ],
+        "footer": []
+      },
+      "index": 9
+    }
+  ]
+}

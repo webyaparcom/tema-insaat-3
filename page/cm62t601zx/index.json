@@ -1,0 +1,39 @@
+{
+  "id": "cm62t601zx",
+  "name": {
+    "tr": "Teklif al",
+    "en": "Get a quote",
+    "ar": "اطلب عرض سعر"
+  },
+  "description": {
+    "tr": "Konut, ticari ya da arsa projeniz için teklif formu (demo).",
+    "en": "Quote form for your housing, commercial or plot project (demo).",
+    "ar": "نموذج طلب عرض سعر لمشروعك السكني أو التجاري أو الأرض (تجريبي)."
+  },
+  "keyword": {
+    "tr": "teklif, keşif, arsa",
+    "en": "quote, site visit, plot",
+    "ar": "عرض سعر، زيارة، أرض"
+  },
+  "path": "teklif-al",
+  "icon": "request_quote",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "wxkms3"
+    ],
+    "footer": []
+  },
+  "index": 4,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Teklif al",
+    "en": "Get a quote",
+    "ar": "اطلب عرض سعر"
+  },
+  "date": "2026-10-31T14:31:22.517Z",
+  "update": "2026-11-05T22:24:56.399Z"
+}

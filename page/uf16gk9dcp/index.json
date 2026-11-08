@@ -1,0 +1,39 @@
+{
+  "id": "uf16gk9dcp",
+  "name": {
+    "tr": "Tarihçe",
+    "en": "History",
+    "ar": "تاريخنا"
+  },
+  "description": {
+    "tr": "Sarnıç Yapı’nın 2011’den bugüne yolculuğu.",
+    "en": "The Sarnic Yapi journey from 2011 to today.",
+    "ar": "مسيرة صارنيتش يابي منذ عام 2011 حتى اليوم."
+  },
+  "keyword": {
+    "tr": "tarihçe, kuruluş, dönüm noktaları",
+    "en": "history, founding, milestones",
+    "ar": "تاريخ، تأسيس، محطات"
+  },
+  "path": "tarihce",
+  "icon": "history",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "2on6oo"
+    ],
+    "footer": []
+  },
+  "index": 9,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Tarihçe",
+    "en": "History",
+    "ar": "تاريخنا"
+  },
+  "date": "2026-10-31T14:31:22.512Z",
+  "update": "2026-11-05T22:24:56.413Z"
+}

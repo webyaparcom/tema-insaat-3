@@ -1,0 +1,54 @@
+{
+  "order": false,
+  "user": false,
+  "description": {
+    "tr": "Sarnıç Yapı: konut ve ticari projeler, sözleşmeli teslim, daire tipi karşılaştırması ve aynı kadrajdan şantiye ilerlemesi. Görseller temsilidir. (Demo site)",
+    "en": "Sarnic Yapi: housing and commercial projects, contractual delivery, unit type comparison and site progress from the same viewpoint. Images are representative. (Demo site)",
+    "ar": "صارنيتش يابي: مشاريع سكنية وتجارية وتسليم تعاقدي ومقارنة أنواع الشقق وتقدّم الموقع من الزاوية نفسها. الصور تمثيلية. (موقع تجريبي)"
+  },
+  "keyword": {
+    "tr": "inşaat, konut projeleri, müteahhit, daire tipleri, şantiye",
+    "en": "construction, housing projects, contractor, unit types, site progress",
+    "ar": "بناء، مشاريع سكنية، مقاول، أنواع الشقق، تقدّم الموقع"
+  },
+  "category": "Galeri",
+  "name": "Sarnıç Yapı",
+  "domain": "insaat-3.webyapar.com",
+  "langs": {
+    "tr": true,
+    "en": true,
+    "ar": true,
+    "de": false,
+    "ru": false,
+    "es": false,
+    "fr": false,
+    "it": false,
+    "ja": false,
+    "zh": false,
+    "ko": false,
+    "pt": false
+  },
+  "logo": "logo.png",
+  "multi": false,
+  "publishMode": "static",
+  "font": {
+    "body": "lora",
+    "heading": "fraunces",
+    "ar": {
+      "body": "ibm-plex-sans-arabic",
+      "heading": "noto-naskh-arabic"
+    }
+  },
+  "colorScheme": "auto",
+  "theme_color": "#2F5D50",
+  "seo": {
+    "noindex": true
+  },
+  "cssTokens": {
+    "--mx-radius-sm": "0px",
+    "--mx-radius-md": "0px",
+    "--mx-radius-lg": "0px",
+    "--mx-radius-xl": "0px"
+  },
+  "icon": "icon.png"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "kalitepolitikamiz",
+  "name": {
+    "tr": "Kalite Politikamız",
+    "en": "Quality Policy",
+    "ar": "سياسة الجودة"
+  },
+  "description": {
+    "tr": "Kalite politikamız",
+    "en": "Our quality policy",
+    "ar": "سياسة الجودة لدينا"
+  },
+  "keyword": {
+    "tr": "",
+    "en": "",
+    "ar": ""
+  },
+  "path": "kalitepolitikamiz",
+  "icon": "verified",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [],
+    "footer": []
+  },
+  "index": 2,
+  "url": "",
+  "text": {
+    "tr": "<h2>Kalite Politikamız</h2>\n<p>Her projede kalite planı, iş güvenliği uzmanı, bağımsız yapı denetimi ve aşama aşama ilerleme raporu esastır.</p>",
+    "en": "<h2>Our quality policy</h2>\n<p>Every project has a quality plan, a safety specialist, independent building inspection and stage-by-stage progress reports.</p>",
+    "ar": "<h2>سياسة الجودة لدينا</h2>\n<p>لكل مشروع خطة جودة ومختص سلامة وإشراف هندسي مستقل وتقارير تقدّم مرحلة بمرحلة.</p>"
+  },
+  "title": {
+    "tr": "Kalite Politikamız",
+    "en": "Quality Policy",
+    "ar": "سياسة الجودة"
+  },
+  "date": "2026-10-31T14:31:22.319Z",
+  "update": "2026-11-05T22:24:56.418Z"
+}

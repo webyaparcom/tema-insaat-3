@@ -1,0 +1,40 @@
+{
+  "id": "zioyxoyy11",
+  "name": {
+    "tr": "Tamamlanan",
+    "en": "Completed",
+    "ar": "المشاريع المنجزة"
+  },
+  "description": {
+    "tr": "Teslim edilen konut ve ticari projelerimiz.",
+    "en": "Residential and commercial projects we have delivered.",
+    "ar": "المشاريع السكنية والتجارية التي سلّمناها."
+  },
+  "keyword": {
+    "tr": "tamamlanan projeler, teslim",
+    "en": "completed projects, delivered",
+    "ar": "مشاريع منجزة، تسليم"
+  },
+  "path": "tamamlanan",
+  "icon": "task_alt",
+  "category": "bnw7790rw2",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "hjk4ks",
+      "qbuqz8"
+    ],
+    "footer": []
+  },
+  "index": 2,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Tamamlanan",
+    "en": "Completed",
+    "ar": "المشاريع المنجزة"
+  },
+  "date": "2026-10-31T14:31:22.498Z",
+  "update": "2026-11-05T22:24:56.393Z"
+}

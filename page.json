@@ -1,0 +1,189 @@
+{
+  "data": [
+    {
+      "id": "bnw7790rw2",
+      "name": {
+        "tr": "Projelerimiz",
+        "en": "Projects",
+        "ar": "مشاريعنا"
+      },
+      "description": {
+        "tr": "Sarnıç Yapı’nın konut ve ticari projeleri; kategori ve duruma göre süzülebilir.",
+        "en": "Sarnic Yapi residential and commercial projects, filterable by category and status.",
+        "ar": "المشاريع السكنية والتجارية لصارنيتش يابي، قابلة للتصفية حسب الفئة والحالة."
+      },
+      "path": "projelerimiz",
+      "icon": "apartment",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "seczvw"
+        ],
+        "footer": []
+      },
+      "index": 0
+    },
+    {
+      "id": "3kmrqbggzo",
+      "name": {
+        "tr": "Devam eden",
+        "en": "Ongoing",
+        "ar": "المشاريع الجارية"
+      },
+      "description": {
+        "tr": "Devam eden ve yakında başlayacak projeler; teslim süresi sözleşmede en fazla 48 aydır.",
+        "en": "Ongoing and upcoming projects; the contractual delivery period is at most 48 months.",
+        "ar": "المشاريع الجارية والقادمة؛ مدة التسليم التعاقدية 48 شهرًا كحدٍّ أقصى."
+      },
+      "path": "devam-eden",
+      "icon": "engineering",
+      "category": "bnw7790rw2",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "6lpqep",
+          "qbuqz8"
+        ],
+        "footer": []
+      },
+      "index": 1
+    },
+    {
+      "id": "zioyxoyy11",
+      "name": {
+        "tr": "Tamamlanan",
+        "en": "Completed",
+        "ar": "المشاريع المنجزة"
+      },
+      "description": {
+        "tr": "Teslim edilen konut ve ticari projelerimiz.",
+        "en": "Residential and commercial projects we have delivered.",
+        "ar": "المشاريع السكنية والتجارية التي سلّمناها."
+      },
+      "path": "tamamlanan",
+      "icon": "task_alt",
+      "category": "bnw7790rw2",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "hjk4ks",
+          "qbuqz8"
+        ],
+        "footer": []
+      },
+      "index": 2
+    },
+    {
+      "id": "exxz8av82a",
+      "name": {
+        "tr": "İlerleme",
+        "en": "Progress",
+        "ar": "تقدّم البناء"
+      },
+      "description": {
+        "tr": "Aynı kadrajdan dört aşamada şantiye ilerlemesi (görseller temsilidir).",
+        "en": "Site progress in four stages from the same viewpoint (images are representative).",
+        "ar": "تقدّم الموقع في أربع مراحل من الزاوية نفسها (الصور تمثيلية)."
+      },
+      "path": "insaat-ilerleme",
+      "icon": "timelapse",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "4i62sf",
+          "qbuqz8"
+        ],
+        "footer": []
+      },
+      "index": 3
+    },
+    {
+      "id": "cm62t601zx",
+      "name": {
+        "tr": "Teklif al",
+        "en": "Get a quote",
+        "ar": "اطلب عرض سعر"
+      },
+      "description": {
+        "tr": "Konut, ticari ya da arsa projeniz için teklif formu (demo).",
+        "en": "Quote form for your housing, commercial or plot project (demo).",
+        "ar": "نموذج طلب عرض سعر لمشروعك السكني أو التجاري أو الأرض (تجريبي)."
+      },
+      "path": "teklif-al",
+      "icon": "request_quote",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "wxkms3"
+        ],
+        "footer": []
+      },
+      "index": 4
+    },
+    {
+      "name": {
+        "tr": "Hakkımızda",
+        "en": "About",
+        "ar": "من نحن"
+      },
+      "status": "play",
+      "id": "hakkimizda",
+      "path": "hakkimizda",
+      "category": "",
+      "url": "",
+      "index": 5,
+      "icon": "info",
+      "desing": {
+        "header": [],
+        "body": [
+          "j4g3ty",
+          "yvaiqe"
+        ],
+        "footer": []
+      },
+      "pathnext": "",
+      "description": {
+        "tr": "Sarnıç Yapı hakkında.",
+        "en": "About Sarnic Yapi.",
+        "ar": "عن صارنيتش يابي."
+      }
+    },
+    {
+      "name": {
+        "tr": "İletişim",
+        "en": "Contact",
+        "ar": "اتصل بنا"
+      },
+      "status": "play",
+      "id": "iletisim",
+      "path": "iletisim",
+      "category": "",
+      "url": "",
+      "index": 6,
+      "icon": "call",
+      "desing": {
+        "header": [],
+        "body": [
+          "g3ct01",
+          "g3mp01"
+        ],
+        "footer": []
+      },
+      "pathnext": "",
+      "description": {
+        "tr": "Adres, telefon ve çalışma saatleri.",
+        "en": "Address, phone and opening hours.",
+        "ar": "العنوان والهاتف وساعات العمل."
+      }
+    }
+  ],
+  "desc": []
+}
