@@ -1,0 +1,140 @@
+{
+  "name": "Karşılaştırma / Paket Tablosu",
+  "description": "Sütun = paket (2–4), satır = özellik; hücre ✓ / ✗ / metin; «önerilen» sütun vurgusu (token); mobilde sütunlar yatay kaydırılır, ilk sütun sabit (position: sticky); altta CTA satırı. desing.stil: cizgili (zebra + çizgi) | kartli-sutun (her sütun ayrı kart) | sade. Veri: desing.paketler[] = [{id, ad{tr,en,ar}, fiyat, fiyatNot{}, onerilen, ctaLabel{}?, url}], data[] = satırlar [{ad{}, degerler[]}] (deger: true/false/sayı/metin/{tr,en,ar}). Renkler yalnız token; koyu mod otomatik; RTL mantıksal CSS.",
+  "version": "1.0.0",
+  "icon": "table_chart",
+  "category": "fiyat",
+  "tags": ["karşılaştırma", "paket", "fiyat", "tablo", "pricing", "compare", "ar"],
+  "desing": {
+    "stil": "cizgili",
+    "max": "1200px",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "textcolor": "var(--mx-site-text, #1b1b1b)",
+    "mutedcolor": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 72%, var(--mx-site-bg, #ffffff))",
+    "surface": "var(--mx-site-surface, #f6f6f4)",
+    "surface2": "var(--mx-site-surface-2, #ececea)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "bordercolor": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 16%, transparent)",
+    "radius": "16px",
+    "eyebrow": {
+      "tr": "Paketler",
+      "en": "Plans",
+      "ar": "الباقات"
+    },
+    "title": {
+      "tr": "Size uygun paketi seçin",
+      "en": "Choose the plan that fits you",
+      "ar": "اختر الباقة المناسبة لك"
+    },
+    "description": {
+      "tr": "Tüm paketlerde kurulum ve ilk ay destek ücretsizdir. İstediğiniz zaman yükseltebilirsiniz.",
+      "en": "Setup and the first month of support are free in every plan. Upgrade whenever you like.",
+      "ar": "التركيب ودعم الشهر الأول مجانيان في جميع الباقات، ويمكنك الترقية في أي وقت."
+    },
+    "featureHeader": {
+      "tr": "Özellik",
+      "en": "Feature",
+      "ar": "الميزة"
+    },
+    "recommendedLabel": {
+      "tr": "Önerilen",
+      "en": "Recommended",
+      "ar": "موصى بها"
+    },
+    "yesLabel": {
+      "tr": "Dahil",
+      "en": "Included",
+      "ar": "مشمول"
+    },
+    "noLabel": {
+      "tr": "Dahil değil",
+      "en": "Not included",
+      "ar": "غير مشمول"
+    },
+    "ctaLabel": {
+      "tr": "Teklif al",
+      "en": "Get a quote",
+      "ar": "اطلب عرض سعر"
+    },
+    "tableLabel": {
+      "tr": "Paket karşılaştırma tablosu",
+      "en": "Plan comparison table",
+      "ar": "جدول مقارنة الباقات"
+    },
+    "scrollHint": {
+      "tr": "Tabloyu yana kaydırın",
+      "en": "Swipe the table sideways",
+      "ar": "اسحب الجدول جانبيًا"
+    },
+    "paketler": [
+      {
+        "id": "baslangic",
+        "ad": { "tr": "Başlangıç", "en": "Starter", "ar": "البداية" },
+        "fiyat": "₺4.900",
+        "fiyatNot": { "tr": "tek seferlik", "en": "one-off", "ar": "دفعة واحدة" },
+        "onerilen": false,
+        "url": ""
+      },
+      {
+        "id": "profesyonel",
+        "ad": { "tr": "Profesyonel", "en": "Professional", "ar": "الاحترافية" },
+        "fiyat": "₺9.900",
+        "fiyatNot": { "tr": "tek seferlik", "en": "one-off", "ar": "دفعة واحدة" },
+        "onerilen": true,
+        "url": ""
+      },
+      {
+        "id": "kurumsal",
+        "ad": { "tr": "Kurumsal", "en": "Enterprise", "ar": "المؤسسية" },
+        "fiyat": "",
+        "fiyatNot": { "tr": "Teklife göre", "en": "Custom quote", "ar": "حسب العرض" },
+        "onerilen": false,
+        "url": ""
+      }
+    ]
+  },
+  "data": [
+    {
+      "ad": { "tr": "Sayfa sayısı", "en": "Number of pages", "ar": "عدد الصفحات" },
+      "degerler": [
+        { "tr": "5'e kadar", "en": "Up to 5", "ar": "حتى 5" },
+        { "tr": "15'e kadar", "en": "Up to 15", "ar": "حتى 15" },
+        { "tr": "Sınırsız", "en": "Unlimited", "ar": "غير محدود" }
+      ]
+    },
+    {
+      "ad": { "tr": "Çok dilli yayın", "en": "Multilingual publishing", "ar": "نشر متعدد اللغات" },
+      "degerler": [false, true, true]
+    },
+    {
+      "ad": { "tr": "Mobil uyum ve hız optimizasyonu", "en": "Mobile-first and speed optimisation", "ar": "توافق الجوال وتحسين السرعة" },
+      "degerler": [true, true, true]
+    },
+    {
+      "ad": { "tr": "SEO kurulumu", "en": "SEO setup", "ar": "إعداد تحسين محركات البحث" },
+      "degerler": [
+        { "tr": "Temel", "en": "Basic", "ar": "أساسي" },
+        { "tr": "Gelişmiş", "en": "Advanced", "ar": "متقدم" },
+        { "tr": "Gelişmiş + raporlama", "en": "Advanced + reporting", "ar": "متقدم + تقارير" }
+      ]
+    },
+    {
+      "ad": { "tr": "Destek süresi", "en": "Support period", "ar": "مدة الدعم" },
+      "degerler": [
+        { "tr": "1 ay", "en": "1 month", "ar": "شهر واحد" },
+        { "tr": "6 ay", "en": "6 months", "ar": "6 أشهر" },
+        { "tr": "12 ay", "en": "12 months", "ar": "12 شهرًا" }
+      ]
+    },
+    {
+      "ad": { "tr": "Özel tasarım bileşenleri", "en": "Custom design components", "ar": "مكوّنات تصميم مخصصة" },
+      "degerler": [false, false, true]
+    }
+  ],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "desing/data"
+  }
+}

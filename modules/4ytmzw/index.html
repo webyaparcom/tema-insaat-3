@@ -1,0 +1,263 @@
+<section class="modulex-h6 modulex-h6--{{h6stil}}" data-mx-hero="1" aria-labelledby="h6-{{id}}-baslik">
+  <div class="modulex-h6-wrap">
+    <div class="modulex-h6-grid">
+      {{h6kartlar}}
+      <div class="modulex-h6-kart modulex-h6-kart--metin modulex-h6-in">
+        <p class="modulex-h6-eyebrow">{{eyebrow}}</p>
+        <h1 class="modulex-h6-baslik" id="h6-{{id}}-baslik">{{title}}</h1>
+        <p class="modulex-h6-metin">{{metin}}</p>
+        <div class="modulex-h6-ctalar">{{h6ctalar}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hero 6 — Bento (31 Eki 2026, G8-A). 12 sütun ızgara; kart türleri gorsel/sayi/alinti/cta + metin kartı.
+     Renkler yalnız desing anahtarı (var(--mx-site-*) varsayılanlı) → koyu mod otomatik. Varyant: bento · mozaik · duz. */
+  .modulex-h6 {
+    box-sizing: border-box;
+    width: 100%;
+    background: --bg--;
+    color: --text--;
+    padding-block: clamp(40px, 7vw, 88px);
+    padding-inline: clamp(16px, 4vw, 32px);
+  }
+  .modulex-h6 *,
+  .modulex-h6 *::before,
+  .modulex-h6 *::after { box-sizing: border-box; }
+  .modulex-h6-wrap { max-width: --max--; margin-inline: auto; }
+
+  .modulex-h6-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: minmax(150px, auto);
+    grid-auto-flow: dense;
+    gap: clamp(12px, 1.6vw, 20px);
+  }
+
+  /* kart tabanı */
+  .modulex-h6-kart {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+    min-width: 0;
+    padding: clamp(18px, 2.4vw, 30px);
+    border: 1px solid --border--;
+    border-radius: --radius--;
+    background: --surface--;
+    color: --text--;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .modulex-h6-kart:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    border-color: color-mix(in srgb, --accent-- 40%, transparent);
+  }
+
+  /* yerleşim (bento): görsel 7 sütun × 2 satır; küçük kartlar 5 sütun; metin 12 */
+  .modulex-h6-kart--gorsel { grid-column: span 7; grid-row: span 2; padding: 0; min-height: 320px; }
+  .modulex-h6-kart--sayi,
+  .modulex-h6-kart--alinti,
+  .modulex-h6-kart--cta { grid-column: span 5; }
+  .modulex-h6-kart--metin { grid-column: span 12; flex-direction: row; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 40px; padding: clamp(24px, 3vw, 40px); }
+
+  /* görsel kart */
+  .modulex-h6-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+  .modulex-h6-kart--gorsel:hover .modulex-h6-img { transform: scale(1.03); }
+  .modulex-h6-ph {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, color-mix(in srgb, --accent-- 30%, --surface2--), --surface2--);
+    color: --muted--;
+  }
+  .modulex-h6-ph .material-symbols-outlined { font-size: 64px; opacity: 0.55; }
+  .modulex-h6-etiket {
+    position: absolute;
+    top: 16px;
+    inset-inline-start: 16px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: --accent--;
+    color: --accentText--;
+  }
+
+  /* sayı kartı */
+  .modulex-h6-kart--sayi .material-symbols-outlined { font-size: 30px; color: --accent--; margin-bottom: auto; }
+  .modulex-h6-deger { display: block; font-size: clamp(2rem, 1.4rem + 1.8vw, 3rem); font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: --text--; }
+  .modulex-h6-sayi-etiket { font-size: 0.95rem; color: --muted--; }
+
+  /* alıntı kartı */
+  .modulex-h6-kart--alinti { justify-content: space-between; }
+  .modulex-h6-tirnak { font-size: 40px; line-height: 1; color: --accent--; }
+  .modulex-h6-alinti { margin: 0; font-size: 1.05rem; line-height: 1.55; font-style: italic; color: --text--; }
+  .modulex-h6-kisi { margin: 0; font-size: 0.9rem; color: --muted--; }
+  .modulex-h6-kisi b { color: --text--; font-weight: 600; }
+
+  /* mini CTA kartı — vurgu zemin + çift token yazı */
+  .modulex-h6-kart--cta { background: --accent--; color: --accentText--; border-color: transparent; }
+  .modulex-h6-kart--cta .material-symbols-outlined { font-size: 30px; margin-bottom: auto; }
+  .modulex-h6-kart--cta h3 { margin: 0; font-size: 1.25rem; font-weight: 700; color: --accentText--; }
+  .modulex-h6-kart--cta p { margin: 0; font-size: 0.95rem; color: color-mix(in srgb, --accentText-- 85%, transparent); }
+  /* css.css bağlantı rengi :where() ile sıfır özgüllük (31 Eki) → :link/:visited tekrarı gerekmez; varyant kuralları ezebilsin */
+  .modulex-h6 a.modulex-h6-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    margin-top: 6px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    background: --accentText--;
+    color: --accent--;
+    align-self: flex-start;
+    transition: transform 0.25s ease;
+  }
+  .modulex-h6 a.modulex-h6-mini:hover,
+  .modulex-h6 a.modulex-h6-mini:focus-visible { transform: translateX(4px); outline-color: --accentText--; }
+  [dir="rtl"] .modulex-h6 a.modulex-h6-mini:hover { transform: translateX(-4px); }
+
+  /* metin kartı */
+  .modulex-h6-icerik { flex: 1 1 420px; min-width: 0; }
+  .modulex-h6-eyebrow { margin: 0 0 10px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: --accent--; }
+  .modulex-h6-baslik { margin: 0 0 14px; font-size: clamp(1.8rem, 1.2rem + 2.2vw, 3rem); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; color: --text--; text-wrap: balance; }
+  .modulex-h6-metin { margin: 0; max-width: 60ch; font-size: 1.05rem; line-height: 1.7; color: --muted--; flex: 1 1 320px; }
+  .modulex-h6-ctalar { display: flex; flex-wrap: wrap; gap: 12px; flex: 0 0 auto; }
+  .modulex-h6-kart--metin .modulex-h6-eyebrow,
+  .modulex-h6-kart--metin .modulex-h6-baslik { flex-basis: 100%; }
+  .modulex-h6 a.modulex-h6-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 12px 24px;
+    border-radius: calc(--radius-- / 1.6);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid --accent--;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .modulex-h6 a.modulex-h6-cta--dolgu { background: --accent--; color: --accentText--; }
+  .modulex-h6 a.modulex-h6-cta--cerceve { background: transparent; color: --text--; border-color: --border--; }
+  .modulex-h6 a.modulex-h6-cta:hover,
+  .modulex-h6 a.modulex-h6-cta:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14); }
+  .modulex-h6 a.modulex-h6-cta:focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-h6-cta .material-symbols-outlined { font-size: 20px; }
+  [dir="rtl"] .modulex-h6-cta .material-symbols-outlined,
+  [dir="rtl"] .modulex-h6-mini .material-symbols-outlined { transform: scaleX(-1); }
+
+  /* === Varyant: bento — görsel 3 satır (sağ sütundaki 3 küçük kartla hizalanır), eşit köşe === */
+  .modulex-h6--bento .modulex-h6-kart--gorsel { grid-row: span 3; min-height: 460px; }
+  .modulex-h6--bento .modulex-h6-kart--metin { background: --surface2--; }
+
+  /* === Varyant: mozaik — farklı boylar, görsel 3 satır, alıntı 2 satır, CTA dar === */
+  .modulex-h6--mozaik .modulex-h6-grid { grid-auto-rows: minmax(120px, auto); }
+  .modulex-h6--mozaik .modulex-h6-kart--gorsel { grid-column: span 7; grid-row: span 3; min-height: 420px; border-radius: calc(--radius-- * 1.5) --radius-- --radius-- calc(--radius-- * 1.5); }
+  .modulex-h6--mozaik .modulex-h6-kart--sayi { grid-column: span 5; grid-row: span 1; flex-direction: row; align-items: center; justify-content: space-between; }
+  .modulex-h6--mozaik .modulex-h6-kart--sayi .material-symbols-outlined { margin-bottom: 0; order: 2; }
+  .modulex-h6--mozaik .modulex-h6-kart--alinti { grid-column: span 5; grid-row: span 2; background: --surface2--; }
+  .modulex-h6--mozaik .modulex-h6-kart--cta { grid-column: span 4; }
+  .modulex-h6--mozaik .modulex-h6-kart--metin { grid-column: span 8; }
+  .modulex-h6--mozaik .modulex-h6-kart:nth-child(odd):not(.modulex-h6-kart--gorsel):not(.modulex-h6-kart--metin) { border-radius: --radius-- --radius-- --radius-- 4px; }
+  .modulex-h6--mozaik .modulex-h6-kart:nth-child(even):not(.modulex-h6-kart--gorsel):not(.modulex-h6-kart--metin) { border-radius: --radius-- --radius-- 4px --radius--; }
+
+  /* === Varyant: duz — kart zemini yok, çizgi ayraç, görsel 6 sütun === */
+  .modulex-h6--duz .modulex-h6-grid { gap: 0; border: 1px solid --border--; }
+  .modulex-h6--duz .modulex-h6-kart { border-radius: 0; border: 0; background: transparent; box-shadow: none; padding: clamp(22px, 3vw, 36px); }
+  .modulex-h6--duz .modulex-h6-kart:hover { transform: none; box-shadow: none; }
+  .modulex-h6--duz .modulex-h6-kart--gorsel { grid-column: span 6; grid-row: span 2; border-inline-end: 1px solid --border--; }
+  .modulex-h6--duz .modulex-h6-kart--sayi,
+  .modulex-h6--duz .modulex-h6-kart--alinti,
+  .modulex-h6--duz .modulex-h6-kart--cta { grid-column: span 3; border-inline-end: 1px solid --border--; border-bottom: 1px solid --border--; }
+  .modulex-h6--duz .modulex-h6-kart--alinti { grid-row: span 2; }
+  .modulex-h6--duz .modulex-h6-kart--cta { background: --accent--; color: --accentText--; }
+  .modulex-h6--duz .modulex-h6-kart--metin { border-top: 1px solid --border--; }
+  .modulex-h6--duz .modulex-h6-etiket { border-radius: 0; }
+  .modulex-h6--duz a.modulex-h6-cta { border-radius: 0; }
+  .modulex-h6--duz a.modulex-h6-mini { border-radius: 0; }
+  .modulex-h6--duz .modulex-h6-img { transition: none; }
+
+  /* giriş animasyonu — yalnız JS varsa gizlenir, kartlar sırayla */
+  .modulex-h6-js .modulex-h6-in { opacity: 0; transform: translateY(14px); transition: opacity 0.3s ease, transform 0.3s ease; }
+  .modulex-h6-js .modulex-h6-in:nth-child(2) { transition-delay: 0.05s; }
+  .modulex-h6-js .modulex-h6-in:nth-child(3) { transition-delay: 0.1s; }
+  .modulex-h6-js .modulex-h6-in:nth-child(4) { transition-delay: 0.15s; }
+  .modulex-h6-js .modulex-h6-in:nth-child(5) { transition-delay: 0.2s; }
+  .modulex-h6-js .modulex-h6-in:nth-child(n+6) { transition-delay: 0.25s; }
+  .modulex-h6-js.modulex-h6-goster .modulex-h6-in { opacity: 1; transform: none; }
+
+  @media (max-width: 1024px) {
+    .modulex-h6-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .modulex-h6-kart--gorsel,
+    .modulex-h6--mozaik .modulex-h6-kart--gorsel,
+    .modulex-h6--duz .modulex-h6-kart--gorsel { grid-column: span 6; grid-row: span 2; min-height: 280px; }
+    .modulex-h6-kart--sayi, .modulex-h6-kart--alinti, .modulex-h6-kart--cta,
+    .modulex-h6--mozaik .modulex-h6-kart--sayi, .modulex-h6--mozaik .modulex-h6-kart--alinti, .modulex-h6--mozaik .modulex-h6-kart--cta,
+    .modulex-h6--duz .modulex-h6-kart--sayi, .modulex-h6--duz .modulex-h6-kart--alinti, .modulex-h6--duz .modulex-h6-kart--cta { grid-column: span 3; grid-row: span 1; }
+    .modulex-h6-kart--metin, .modulex-h6--mozaik .modulex-h6-kart--metin { grid-column: span 6; }
+  }
+  @media (max-width: 768px) {
+    .modulex-h6 { padding-block: 32px 40px; }
+    .modulex-h6-grid { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; }
+    .modulex-h6-kart, .modulex-h6--mozaik .modulex-h6-kart, .modulex-h6--duz .modulex-h6-kart { grid-column: span 1 !important; grid-row: auto !important; }
+    .modulex-h6-kart--gorsel { min-height: 240px !important; }
+    .modulex-h6--duz .modulex-h6-kart--gorsel { border-inline-end: 0; border-bottom: 1px solid --border--; }
+    .modulex-h6--duz .modulex-h6-kart--sayi, .modulex-h6--duz .modulex-h6-kart--alinti, .modulex-h6--duz .modulex-h6-kart--cta { border-inline-end: 0; }
+    /* sütun yönünde flex-basis:100% yüksekliğe uygulanır ve sarma yeni sütun açar (metin kart dışına taşıyordu) → sarma kapalı, basis auto */
+    .modulex-h6 .modulex-h6-kart--metin { flex-direction: column; flex-wrap: nowrap; align-items: stretch; justify-content: flex-start; }
+    .modulex-h6 .modulex-h6-kart--metin > *,
+    .modulex-h6 .modulex-h6-kart--metin > .modulex-h6-eyebrow,
+    .modulex-h6 .modulex-h6-kart--metin > .modulex-h6-baslik,
+    .modulex-h6 .modulex-h6-kart--metin > .modulex-h6-metin,
+    .modulex-h6 .modulex-h6-kart--metin > .modulex-h6-ctalar { flex: 0 0 auto; flex-basis: auto; width: 100%; }
+    .modulex-h6-ctalar { flex-direction: column; }
+    .modulex-h6 a.modulex-h6-cta { width: 100%; }
+  }
+
+  /* W2: mobil tasma kontrolu */
+  @media (max-width: 768px) {
+    [class*="modulex"] {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  /* W2: erisilebilirlik — animasyon kapatma */
+  @media (prefers-reduced-motion: reduce) {
+    [class*="modulex"],
+    [class*="modulex"] * {
+      animation: none !important;
+      transition: none !important;
+    }
+    .modulex-h6-js .modulex-h6-in { opacity: 1; transform: none; }
+  }
+</style>
+<script>
+  (function () {
+    var kok = document.querySelector(".modulex-h6");
+    if (!kok) { return; }
+    var azalt = false;
+    try { azalt = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { azalt = false; }
+    if (azalt || !("IntersectionObserver" in window)) { return; }
+    kok.classList.add("modulex-h6-js");
+    var io = new IntersectionObserver(function (girdiler) {
+      for (var i = 0; i < girdiler.length; i++) {
+        if (girdiler[i].isIntersecting) { kok.classList.add("modulex-h6-goster"); io.disconnect(); }
+      }
+    }, { threshold: 0.1 });
+    io.observe(kok);
+    setTimeout(function () { kok.classList.add("modulex-h6-goster"); }, 600);
+  })();
+</script>

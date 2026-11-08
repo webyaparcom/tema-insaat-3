@@ -1,0 +1,212 @@
+{
+  "name": "Önce / Sonra Karşılaştırma",
+  "description": "Önce/sonra karşılaştırma kaydırıcısı: klavye erişilebilir input[type=range] (aria-label üç dilli, RTL'de «önce» tarafı sağda), yatay/dikey yön, başlangıç konumu, çiftler arası gezinme, lightbox ile büyütme. mode:\"ilerleme\" ile inşaat/dönüşüm zaman şeridi (pairs sıralı tarih etiketli kareler; aynı kaydırıcı kareler arasında gezdirir, oynat düğmesi). pairs[{before,after,title{tr,en,ar},note{},date?}]. SAĞLIK sektöründe (klinik, diş, estetik, tedavi sonuçları) KULLANILMAZ: tıbbi önce/sonra görselleri mevzuat gereği yasaktır; güzellik (tıbbi olmayan), inşaat, dekorasyon ve yenileme işleri içindir. rizaAlindi:false iken görseller yayınlanmaz, «riza» ibaresi görselin altında gösterilir. Üç dil + RTL.",
+  "version": "1.0.0",
+  "icon": "compare",
+  "category": "galeri",
+  "tags": [
+    "önce sonra",
+    "karşılaştırma",
+    "before after",
+    "ilerleme",
+    "dönüşüm",
+    "compare"
+  ],
+  "desing": {
+    "max": "960px",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "textcolor": "var(--mx-site-text, #1b1b1b)",
+    "mutedcolor": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 72%, var(--mx-site-bg, #fff))",
+    "surface": "var(--mx-site-surface, #f6f6f4)",
+    "surface2": "var(--mx-site-surface-2, #ececea)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "bordercolor": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 18%, transparent)",
+    "radius": "14px",
+    "ratio": "16:9",
+    "mode": "karsilastir",
+    "orientation": "h",
+    "start": 50,
+    "lightbox": true,
+    "playMs": 1500,
+    "rizaAlindi": false,
+    "riza": {
+      "tr": "Yazılı açık rıza olmadan işlem görseli yayınlanmaz.",
+      "en": "Treatment images are not published without written explicit consent.",
+      "ar": "لا تُنشر صور الإجراءات دون موافقة خطية صريحة."
+    },
+    "title": {
+      "tr": "Önce ve Sonra",
+      "en": "Before and After",
+      "ar": "قبل وبعد"
+    },
+    "description": {
+      "tr": "Kaydırıcıyı sürükleyin ya da ok tuşlarıyla kullanın; dönüşümü kendiniz karşılaştırın.",
+      "en": "Drag the slider or use the arrow keys to compare the transformation yourself.",
+      "ar": "اسحب المؤشر أو استخدم مفاتيح الأسهم لمقارنة التحول بنفسك."
+    },
+    "labels": {
+      "before": {
+        "tr": "Önce",
+        "en": "Before",
+        "ar": "قبل"
+      },
+      "after": {
+        "tr": "Sonra",
+        "en": "After",
+        "ar": "بعد"
+      }
+    },
+    "sliderLabel": {
+      "tr": "Önce ve sonra görsellerini karşılaştıran kaydırıcı",
+      "en": "Slider comparing the before and after images",
+      "ar": "مؤشر لمقارنة صورتَي قبل وبعد"
+    },
+    "valueText": {
+      "tr": "Önce görseli yüzde {v} oranında gösteriliyor",
+      "en": "The before image is shown at {v} percent",
+      "ar": "تُعرض صورة «قبل» بنسبة {v}%"
+    },
+    "progressLabel": {
+      "tr": "Zaman çizelgesi kaydırıcısı",
+      "en": "Timeline slider",
+      "ar": "مؤشر الخط الزمني"
+    },
+    "frameText": {
+      "tr": "{i} / {n}: {label}",
+      "en": "{i} / {n}: {label}",
+      "ar": "{i} من {n}: {label}"
+    },
+    "timelineLabel": {
+      "tr": "Zaman çizelgesi",
+      "en": "Timeline",
+      "ar": "الخط الزمني"
+    },
+    "counterText": {
+      "tr": "{i} / {n}",
+      "en": "{i} / {n}",
+      "ar": "{i} من {n}"
+    },
+    "prevLabel": {
+      "tr": "Önceki çift",
+      "en": "Previous pair",
+      "ar": "الزوج السابق"
+    },
+    "nextLabel": {
+      "tr": "Sonraki çift",
+      "en": "Next pair",
+      "ar": "الزوج التالي"
+    },
+    "playLabel": {
+      "tr": "Oynat",
+      "en": "Play",
+      "ar": "تشغيل"
+    },
+    "pauseLabel": {
+      "tr": "Duraklat",
+      "en": "Pause",
+      "ar": "إيقاف مؤقت"
+    },
+    "enlargeLabel": {
+      "tr": "Görselleri büyüt",
+      "en": "Enlarge images",
+      "ar": "تكبير الصور"
+    },
+    "emptyText": {
+      "tr": "Gösterilecek karşılaştırma yok.",
+      "en": "There is nothing to compare yet.",
+      "ar": "لا توجد مقارنات لعرضها."
+    },
+    "lightboxLabels": {
+      "dialog": {
+        "tr": "Görsel görüntüleyici",
+        "en": "Image viewer",
+        "ar": "عارض الصور"
+      },
+      "close": {
+        "tr": "Kapat",
+        "en": "Close",
+        "ar": "إغلاق"
+      },
+      "prev": {
+        "tr": "Önceki görsel",
+        "en": "Previous image",
+        "ar": "الصورة السابقة"
+      },
+      "next": {
+        "tr": "Sonraki görsel",
+        "en": "Next image",
+        "ar": "الصورة التالية"
+      },
+      "counter": {
+        "tr": "{i} / {n}",
+        "en": "{i} / {n}",
+        "ar": "{i} من {n}"
+      }
+    }
+  },
+  "data": [
+    {
+      "before": "",
+      "after": "",
+      "title": {
+        "tr": "Oturma odası yenileme",
+        "en": "Living room renovation",
+        "ar": "تجديد غرفة المعيشة"
+      },
+      "note": {
+        "tr": "Duvar, zemin ve aydınlatma yenilendi.",
+        "en": "Walls, flooring and lighting were renewed.",
+        "ar": "جُدِّدت الجدران والأرضية والإضاءة."
+      },
+      "date": {
+        "tr": "Mart 2026",
+        "en": "March 2026",
+        "ar": "مارس 2026"
+      }
+    },
+    {
+      "before": "",
+      "after": "",
+      "title": {
+        "tr": "Mutfak dönüşümü",
+        "en": "Kitchen transformation",
+        "ar": "تحويل المطبخ"
+      },
+      "note": {
+        "tr": "Tezgâh ve dolap düzeni baştan tasarlandı.",
+        "en": "The counter and cabinet layout was redesigned.",
+        "ar": "أُعيد تصميم الطاولة وترتيب الخزائن."
+      },
+      "date": {
+        "tr": "Nisan 2026",
+        "en": "April 2026",
+        "ar": "أبريل 2026"
+      }
+    },
+    {
+      "before": "",
+      "after": "",
+      "title": {
+        "tr": "Cephe boyası",
+        "en": "Facade repaint",
+        "ar": "طلاء الواجهة"
+      },
+      "note": {
+        "tr": "Dış cephe yıkanıp yeniden boyandı.",
+        "en": "The exterior was washed and repainted.",
+        "ar": "غُسلت الواجهة الخارجية وأُعيد طلاؤها."
+      },
+      "date": {
+        "tr": "Mayıs 2026",
+        "en": "May 2026",
+        "ar": "مايو 2026"
+      }
+    }
+  ],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "desing/data"
+  }
+}

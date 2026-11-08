@@ -1,0 +1,123 @@
+<section class="modulex-kt{{ktclass}}" id="kt-{{id}}">
+  <div class="modulex-kt-wrap">
+    {{kthead}}
+    <p class="modulex-kt-hint" aria-hidden="true"><span class="material-symbols-outlined">swipe</span> {{scrollHint}}</p>
+    <div class="modulex-kt-scroll" role="region" aria-label="{{tableLabel}}" tabindex="0">
+      <table class="modulex-kt-table">
+        <thead><tr>{{ktheadrow}}</tr></thead>
+        <tbody>{{ktrows}}</tbody>
+        <tfoot><tr>{{ktfoot}}</tr></tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Karşılaştırma / Paket Tablosu (31 Eki 2026, G8-B). Renkler yalnız desing anahtarı → var(--mx-site-*); koyu mod paletten. */
+  .modulex-kt {
+    box-sizing: border-box;
+    width: 100%;
+    padding-block: clamp(40px, 7vw, 88px);
+    padding-inline: clamp(16px, 4vw, 32px);
+    background: --bgcolor--;
+    color: --textcolor--;
+  }
+  .modulex-kt *, .modulex-kt *::before, .modulex-kt *::after { box-sizing: border-box; }
+  /* ham css.css `* { font-size:14px; font-weight:400 }` kalıtımı kırar → satır içi öğeler ebeveynden alır */
+  .modulex-kt :where(span:not(.material-symbols-outlined), bdi, b, strong, em) { font: inherit; }
+  .modulex-kt-wrap { max-width: --max--; margin-inline: auto; }
+
+  .modulex-kt-head { max-width: 68ch; margin-block-end: 36px; text-align: start; }
+  .modulex-kt-eyebrow {
+    display: inline-block; margin: 0 0 10px; padding: 4px 12px; border-radius: 999px;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    color: --accentText--; background: --accent--; /* dolgulu çip: vurgu/vurgu-kontrast çifti ≥ 4,5 palet güvencesi */
+  }
+  .modulex-kt-title { margin: 0 0 10px; font-size: clamp(1.7rem, 1.2rem + 1.8vw, 2.5rem); line-height: 1.15; color: --textcolor--; text-wrap: balance; }
+  .modulex-kt-desc { margin: 0; font-size: 1.05rem; line-height: 1.7; color: --mutedcolor--; }
+  .modulex-kt-hint { display: none; align-items: center; gap: 6px; margin: 0 0 10px; font-size: 0.85rem; color: --mutedcolor--; }
+
+  /* position: relative → içerideki mutlak konumlu sr metni kaydırma kutusunda kalır (aksi halde belgeyi yatay taşırır) */
+  .modulex-kt-scroll { position: relative; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; border-radius: --radius--; }
+  .modulex-kt-scroll:focus-visible { outline: 3px solid --accent--; outline-offset: 2px; }
+  .modulex-kt-table { width: 100%; min-width: 640px; border-collapse: collapse; border-spacing: 0; text-align: start; }
+  .modulex-kt-table th, .modulex-kt-table td { padding: 16px 18px; vertical-align: middle; text-align: center; font-size: 0.98rem; line-height: 1.5; color: --textcolor--; }
+  .modulex-kt-table thead th { vertical-align: bottom; }
+  .modulex-kt-ilk { text-align: start !important; font-weight: 600; min-width: 200px; }
+  /* İlk sütun sabit: zemin opak olmalı (altındaki hücre görünmesin) */
+  .modulex-kt-table .modulex-kt-ilk { position: sticky; inset-inline-start: 0; z-index: 1; background: --bgcolor--; }
+  .modulex-kt-table thead .modulex-kt-ilk { color: --mutedcolor--; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .modulex-kt-paket { min-width: 160px; }
+  .modulex-kt-rozet { display: inline-block; margin-block-end: 8px; padding: 3px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; background: --accent--; color: --accentText--; }
+  .modulex-kt-rozet-bos { display: block; height: 0; margin: 0; padding: 0; visibility: hidden; }
+  .modulex-kt-ad { display: block; margin: 0; font-size: 1.15rem; font-weight: 700; line-height: 1.2; color: --textcolor--; }
+  .modulex-kt-fiyat { display: block; margin-block-start: 6px; font-size: 1.6rem; font-weight: 800; line-height: 1; color: --accent--; font-variant-numeric: tabular-nums; }
+  .modulex-kt-fiyat-not { display: block; margin-block-start: 4px; font-size: 0.82rem; font-weight: 500; color: --mutedcolor--; }
+
+  .modulex-kt-evet, .modulex-kt-hayir { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; }
+  .modulex-kt-evet { background: --accent--; color: --accentText--; } /* dolgulu: vurgu sütununun açık tonunda vurgu ikonu 3,8'e düşüyordu */
+  .modulex-kt-hayir { background: color-mix(in srgb, --textcolor-- 8%, transparent); color: --mutedcolor--; }
+  .modulex-kt-evet .material-symbols-outlined, .modulex-kt-hayir .material-symbols-outlined { font-size: 20px; }
+  .modulex-kt-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); border: 0; white-space: nowrap; }
+
+  .modulex-kt a.modulex-kt-btn, .modulex-kt a.modulex-kt-btn:link, .modulex-kt a.modulex-kt-btn:visited {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 46px; width: 100%; padding: 10px 18px;
+    border-radius: 999px; border: 2px solid --accent--; background: transparent; color: --accent--; font-weight: 700; text-decoration: none; cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+  .modulex-kt a.modulex-kt-btn:hover, .modulex-kt a.modulex-kt-btn:focus-visible { background: --accent--; color: --accentText--; transform: translateY(-2px); }
+  .modulex-kt a.modulex-kt-btn:focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-kt-oner a.modulex-kt-btn, .modulex-kt-oner a.modulex-kt-btn:link, .modulex-kt-oner a.modulex-kt-btn:visited { background: --accent--; color: --accentText--; }
+
+  /* Önerilen sütun vurgusu */
+  .modulex-kt-table td.modulex-kt-oner, .modulex-kt-table th.modulex-kt-oner { background: color-mix(in srgb, --accent-- 9%, --bgcolor--); }
+  .modulex-kt-table thead th.modulex-kt-oner { border-top: 4px solid --accent--; }
+
+  /* ── Varyant: cizgili (varsayılan) — satır çizgileri + zebra */
+  .modulex-kt-cizgili .modulex-kt-table tbody tr { border-top: 1px solid --bordercolor--; }
+  .modulex-kt-cizgili .modulex-kt-table tfoot tr { border-top: 1px solid --bordercolor--; }
+  .modulex-kt-cizgili .modulex-kt-table tbody tr:nth-child(even) td, .modulex-kt-cizgili .modulex-kt-table tbody tr:nth-child(even) .modulex-kt-ilk { background: --surface--; }
+  .modulex-kt-cizgili .modulex-kt-table tbody tr:nth-child(even) td.modulex-kt-oner { background: color-mix(in srgb, --accent-- 14%, --surface--); }
+  .modulex-kt-cizgili .modulex-kt-table thead th { padding-block-end: 20px; border-bottom: 2px solid --bordercolor--; }
+
+  /* ── Varyant: kartli-sutun — her paket sütunu ayrı kart (ayrık kenarlık, üst/alt yuvarlak) */
+  .modulex-kt-kartli-sutun .modulex-kt-table { border-collapse: separate; border-spacing: 12px 0; margin-inline: -12px; width: calc(100% + 24px); }
+  .modulex-kt-kartli-sutun .modulex-kt-table th.modulex-kt-paket, .modulex-kt-kartli-sutun .modulex-kt-table td { background: --surface--; border-inline: 1px solid --bordercolor--; }
+  .modulex-kt-kartli-sutun .modulex-kt-table thead th.modulex-kt-paket { border-top: 1px solid --bordercolor--; border-start-start-radius: --radius--; border-start-end-radius: --radius--; padding-block: 24px; }
+  .modulex-kt-kartli-sutun .modulex-kt-table thead th.modulex-kt-oner { border-top: 4px solid --accent--; }
+  .modulex-kt-kartli-sutun .modulex-kt-table tfoot td { border-bottom: 1px solid --bordercolor--; border-end-start-radius: --radius--; border-end-end-radius: --radius--; padding-block: 20px 24px; }
+  .modulex-kt-kartli-sutun .modulex-kt-table tbody td { border-top: 1px solid --bordercolor--; }
+  .modulex-kt-kartli-sutun .modulex-kt-table .modulex-kt-ilk { background: --bgcolor--; border: 0; }
+  .modulex-kt-kartli-sutun .modulex-kt-table tbody .modulex-kt-ilk { border-top: 1px solid --bordercolor--; }
+  .modulex-kt-kartli-sutun .modulex-kt-table td.modulex-kt-oner, .modulex-kt-kartli-sutun .modulex-kt-table th.modulex-kt-oner { background: color-mix(in srgb, --accent-- 9%, --surface--); border-inline-color: --accent--; }
+
+  /* ── Varyant: sade — çizgisiz, ferah; yalnız ince alt ayraçlar */
+  .modulex-kt-sade .modulex-kt-table th, .modulex-kt-sade .modulex-kt-table td { padding: 20px 18px; }
+  .modulex-kt-sade .modulex-kt-table tbody td, .modulex-kt-sade .modulex-kt-table tbody .modulex-kt-ilk { border-bottom: 1px solid --bordercolor--; }
+  .modulex-kt-sade .modulex-kt-table thead th { padding-block-end: 24px; }
+  .modulex-kt-sade .modulex-kt-fiyat { font-weight: 500; font-size: 1.8rem; }
+  .modulex-kt-sade .modulex-kt-table td.modulex-kt-oner, .modulex-kt-sade .modulex-kt-table th.modulex-kt-oner { background: transparent; }
+  .modulex-kt-sade .modulex-kt-table thead th.modulex-kt-oner { border-top: 0; }
+  .modulex-kt-sade .modulex-kt-table thead th.modulex-kt-oner .modulex-kt-ad { color: --accent--; }
+  .modulex-kt-sade .modulex-kt-evet, .modulex-kt-sade .modulex-kt-hayir { background: transparent; }
+  .modulex-kt-sade .modulex-kt-evet { color: --accent--; } /* zemin şeffafken ikon vurgu rengi (vurgu-kontrast sayfa zemininde kaybolur) */
+
+  @media (max-width: 768px) {
+    .modulex-kt { padding-block: 36px; padding-inline: 12px; }
+    .modulex-kt-head { margin-block-end: 20px; padding-inline: 4px; }
+    .modulex-kt-hint { display: flex; }
+    .modulex-kt-table { min-width: 560px; }
+    .modulex-kt-table th, .modulex-kt-table td { padding: 12px 10px; font-size: 0.9rem; }
+    .modulex-kt-ilk { min-width: 150px; max-width: 170px; }
+    .modulex-kt-paket { min-width: 136px; }
+    .modulex-kt-fiyat { font-size: 1.3rem; }
+    .modulex-kt-kartli-sutun .modulex-kt-table { border-spacing: 6px 0; margin-inline: -6px; width: calc(100% + 12px); }
+    [class*="modulex"] { max-width: 100%; box-sizing: border-box; }
+    .modulex-kt-table { max-width: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-kt *, .modulex-kt *::before, .modulex-kt *::after { animation: none !important; transition: none !important; }
+    .modulex-kt a.modulex-kt-btn:hover { transform: none; }
+  }
+</style>

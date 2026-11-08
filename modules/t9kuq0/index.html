@@ -1,0 +1,389 @@
+<header class="modulex-m9 modulex-m9--{{m9stil}}{{m9sinif}}" role="banner">
+  {{m9band}}
+  <div class="modulex-m9-bosluk" aria-hidden="true"></div>
+  <div class="modulex-m9-bar">
+    <div class="modulex-m9-bar-ic">
+      <nav class="modulex-m9-nav modulex-m9-nav--sol" aria-label="@navigation@">
+        <ul>{{m9sol}}</ul>
+      </nav>
+      <a class="modulex-m9-logo" href="/{{lang}}/" aria-label="@home@ - {{web-name}}">
+        <img src="/img/{{logo}}" alt="{{web-name}}" loading="eager" decoding="async" />
+      </a>
+      <nav class="modulex-m9-nav modulex-m9-nav--sag" aria-label="@navigation@">
+        <ul>{{m9sag}}</ul>
+      </nav>
+      <div class="modulex-m9-bar-dil">{{langbar}}</div>
+      <button class="modulex-m9-hamburger" type="button" aria-expanded="false" aria-controls="m9-{{id}}-panel" aria-label="@menu-toggle@">
+        <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+      </button>
+    </div>
+  </div>
+  <div class="modulex-m9-panel" id="m9-{{id}}-panel" hidden>
+    <div class="modulex-m9-panel-ust">
+      <a class="modulex-m9-logo modulex-m9-logo--panel" href="/{{lang}}/" aria-label="@home@ - {{web-name}}">
+        <img src="/img/{{logo}}" alt="{{web-name}}" loading="lazy" decoding="async" />
+      </a>
+      <button class="modulex-m9-kapat" type="button" aria-label="@menu-close@">
+        <span class="material-symbols-outlined" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <nav class="modulex-m9-panel-nav" aria-label="@navigation@">
+      <ul>{{m9tum}}</ul>
+    </nav>
+    <div class="modulex-m9-panel-alt">
+      {{m9bandmobil}}
+      {{langbar}}
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Menü 9 — Ortalı logo (31 Eki 2026, G8-A). Renkler yalnız desing anahtarı (var(--mx-site-*) varsayılanlı).
+     Çiftler: bg/text (çubuk), band_bg/band_text (bilgi bandı), accent/accentText (aktif öğe · kutulu band). */
+  .modulex-m9 {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    background: --bg--;
+    color: --text--;
+    z-index: 900;
+  }
+  .modulex-m9 *,
+  .modulex-m9 *::before,
+  .modulex-m9 *::after { box-sizing: border-box; }
+  .modulex-m9 ul { list-style: none; margin: 0; padding: 0; }
+
+  /* --- bilgi bandı --- */
+  .modulex-m9-band {
+    width: 100%;
+    background: --band_bg--;
+    color: --band_text--;
+    font-size: 0.82rem;
+  }
+  .modulex-m9-band-ic {
+    max-width: --max--;
+    margin-inline: auto;
+    padding: 6px clamp(16px, 4vw, 32px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    min-height: 36px;
+  }
+  .modulex-m9-bilgi { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+  .modulex-m9-bilgi li { display: inline-flex; align-items: center; gap: 6px; min-height: 24px; }
+  .modulex-m9-bilgi .material-symbols-outlined { font-size: 16px; color: --accent--; }
+  .modulex-m9 a.modulex-m9-bilgi-link,
+  .modulex-m9 a.modulex-m9-bilgi-link:link,
+  .modulex-m9 a.modulex-m9-bilgi-link:visited { color: inherit; text-decoration: none; padding-block: 6px; }
+  .modulex-m9 a.modulex-m9-bilgi-link:hover,
+  .modulex-m9 a.modulex-m9-bilgi-link:focus-visible { text-decoration: underline; outline-color: currentColor; }
+  .modulex-m9-band-sag { display: flex; align-items: center; gap: 8px 14px; }
+  .modulex-m9-sosyal { display: flex; gap: 6px; }
+  .modulex-m9 a.modulex-m9-chip,
+  .modulex-m9 a.modulex-m9-chip:link,
+  .modulex-m9 a.modulex-m9-chip:visited {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.78rem;
+    transition: background-color 0.2s ease;
+  }
+  .modulex-m9 a.modulex-m9-chip:hover,
+  .modulex-m9 a.modulex-m9-chip:focus-visible { background: color-mix(in srgb, currentColor 12%, transparent); outline-color: currentColor; }
+  .modulex-m9-band .wm-langbar { margin: 0; }
+
+  /* --- çubuk --- */
+  .modulex-m9-bar {
+    width: 100%;
+    background: --bg--;
+    color: --text--;
+    border-bottom: 1px solid --border--;
+    transition: box-shadow 0.3s ease, padding 0.3s ease;
+  }
+  .modulex-m9-bar-ic {
+    max-width: --max--;
+    margin-inline: auto;
+    padding: 14px clamp(16px, 4vw, 32px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+    transition: padding 0.3s ease;
+  }
+  .modulex-m9-nav ul { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .modulex-m9-nav--sol ul { justify-content: flex-end; }
+  .modulex-m9-nav--sag ul { justify-content: flex-start; }
+  /* css.css bağlantı rengi :where() ile sıfır özgüllük (31 Eki) → :link/:visited tekrarı gerekmez; varyant kuralları ezebilsin */
+  .modulex-m9 a.modulex-m9-oge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: --text--;
+    font-size: 0.98rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+  .modulex-m9 a.modulex-m9-oge::after {
+    content: "";
+    position: absolute;
+    inset-inline: 14px;
+    bottom: 6px;
+    height: 2px;
+    border-radius: 2px;
+    background: --accent--;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  [dir="rtl"] .modulex-m9 a.modulex-m9-oge::after { transform-origin: right; }
+  .modulex-m9 a.modulex-m9-oge:hover,
+  .modulex-m9 a.modulex-m9-oge:focus-visible { color: --accent--; outline-color: --accent--; }
+  .modulex-m9 a.modulex-m9-oge:hover::after,
+  .modulex-m9 a.modulex-m9-oge:focus-visible::after,
+  .modulex-m9 a.modulex-m9-oge[aria-current="page"]::after { transform: scaleX(1); }
+  .modulex-m9 a.modulex-m9-oge[aria-current="page"] { color: --accent--; font-weight: 700; }
+
+  .modulex-m9-logo { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+  .modulex-m9-logo img {
+    display: block;
+    height: --logo_h--;
+    width: auto;
+    max-width: min(60vw, 260px);
+    object-fit: contain;
+    transition: height 0.3s ease;
+  }
+  .modulex-m9-logo img[src*=".svg"] { height: --logo_h--; width: auto; }
+
+  .modulex-m9-bar-dil { display: none; }
+  .modulex-m9-bandsiz .modulex-m9-bar-dil { display: flex; justify-content: flex-end; }
+  .modulex-m9-bandsiz .modulex-m9-bar-ic { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto; }
+
+  .modulex-m9-hamburger,
+  .modulex-m9-kapat {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid --border--;
+    border-radius: 10px;
+    background: transparent;
+    color: --text--;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .modulex-m9-hamburger:hover,
+  .modulex-m9-kapat:hover { background: color-mix(in srgb, --text-- 8%, transparent); }
+  .modulex-m9-hamburger:focus-visible,
+  .modulex-m9-kapat:focus-visible { outline: 3px solid --accent--; outline-offset: 2px; }
+  .modulex-m9-hamburger .material-symbols-outlined,
+  .modulex-m9-kapat .material-symbols-outlined { font-size: 28px; }
+
+  /* --- sticky: kaydırınca sabit + küçük --- */
+  .modulex-m9-bosluk { display: none; }
+  .modulex-m9-kucuk .modulex-m9-bosluk { display: block; }
+  .modulex-m9-kucuk .modulex-m9-bar {
+    position: fixed;
+    top: 0;
+    inset-inline: 0;
+    z-index: 950;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+    animation: modulexM9In 0.3s ease;
+  }
+  .modulex-m9-kucuk .modulex-m9-bar-ic { padding-block: 6px; }
+  .modulex-m9-kucuk .modulex-m9-logo img { height: calc(--logo_h-- * 0.7); }
+  @keyframes modulexM9In {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+  }
+
+  /* --- mobil panel (tam ekran) --- */
+  .modulex-m9-panel {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    background: --bg--;
+    color: --text--;
+    overflow-y: auto;
+    padding: 12px clamp(16px, 5vw, 28px) 28px;
+    animation: modulexM9Panel 0.3s ease;
+  }
+  .modulex-m9-panel[hidden] { display: none; }
+  @keyframes modulexM9Panel {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: none; }
+  }
+  .modulex-m9-panel-ust { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+  .modulex-m9-logo--panel img { height: calc(--logo_h-- * 0.8); }
+  .modulex-m9-kapat { display: inline-flex; }
+  .modulex-m9-panel-nav ul { display: flex; flex-direction: column; }
+  .modulex-m9 .modulex-m9-panel-nav a.modulex-m9-oge {
+    display: flex;
+    min-height: 56px;
+    padding: 14px 8px;
+    border-radius: 0;
+    border-bottom: 1px solid --border--;
+    font-size: 1.25rem;
+    white-space: normal;
+  }
+  .modulex-m9-panel-nav a.modulex-m9-oge::after { display: none; }
+  .modulex-m9-panel-alt { margin-top: auto; padding-top: 24px; display: flex; flex-direction: column; gap: 14px; font-size: 0.95rem; color: --muted--; }
+  .modulex-m9-panel-alt .modulex-m9-bilgi { flex-direction: column; gap: 10px; }
+  .modulex-m9-panel-alt .modulex-m9-bilgi li { min-height: 32px; }
+  .modulex-m9-panel-alt .wm-langbar { margin: 0; }
+
+  /* === Varyant: ince — varsayılan hairline === */
+  .modulex-m9--ince .modulex-m9-bar-ic { padding-block: 12px; }
+
+  /* === Varyant: cizgili — çift çizgi, büyük harf, geniş aralık === */
+  .modulex-m9--cizgili .modulex-m9-bar { border-top: 1px solid --border--; border-bottom: 3px double --border--; }
+  .modulex-m9--cizgili .modulex-m9-bar-ic { padding-block: 18px; gap: 36px; }
+  .modulex-m9--cizgili a.modulex-m9-oge { font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; border-radius: 0; }
+  .modulex-m9--cizgili a.modulex-m9-oge::after { bottom: 2px; }
+  .modulex-m9--cizgili .modulex-m9-logo img { height: calc(--logo_h-- * 1.25); }
+  .modulex-m9--cizgili .modulex-m9-band { border-bottom: 1px solid color-mix(in srgb, --band_text-- 15%, transparent); }
+  .modulex-m9--cizgili .modulex-m9-band-ic { justify-content: center; text-align: center; }
+  .modulex-m9--cizgili .modulex-m9-bilgi { justify-content: center; }
+  .modulex-m9--cizgili .modulex-m9-nav--sol ul { justify-content: flex-end; gap: 10px; }
+  .modulex-m9--cizgili .modulex-m9-nav--sag ul { gap: 10px; }
+
+  /* === Varyant: kutulu — çubuk kutuda, öğeler hap, band vurgu renginde === */
+  .modulex-m9--kutulu .modulex-m9-band { background: --accent--; color: --accentText--; }
+  /* vurgu zeminde aktif dil çipi: css.css varsayılanı (currentColor %16) 4,27:1 kalıyordu → ters çift (accentText zemin, accent yazı) */
+  .modulex-m9--kutulu .modulex-m9-band .wm-langbar { --wm-lang-active-bg: --accentText--; --wm-lang-active-color: --accent--; }
+  .modulex-m9--kutulu .modulex-m9-band .material-symbols-outlined { color: --accentText--; }
+  .modulex-m9--kutulu .modulex-m9-bar { border-bottom: 0; padding: 12px clamp(12px, 3vw, 24px) 0; }
+  .modulex-m9--kutulu .modulex-m9-bar-ic {
+    border: 1px solid --border--;
+    border-radius: 16px;
+    padding: 10px 16px;
+    background: --bg--;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  }
+  .modulex-m9--kutulu a.modulex-m9-oge { border: 1px solid --border--; border-radius: 999px; padding: 8px 16px; min-height: 42px; }
+  .modulex-m9--kutulu a.modulex-m9-oge::after { display: none; }
+  .modulex-m9--kutulu a.modulex-m9-oge:hover,
+  .modulex-m9--kutulu a.modulex-m9-oge:focus-visible { border-color: --accent--; }
+  .modulex-m9--kutulu a.modulex-m9-oge[aria-current="page"] { background: --accent--; color: --accentText--; border-color: --accent--; }
+  .modulex-m9--kutulu.modulex-m9-kucuk .modulex-m9-bar { padding: 8px clamp(12px, 3vw, 24px); background: transparent; box-shadow: none; }
+  .modulex-m9--kutulu .modulex-m9-panel-nav a.modulex-m9-oge { border: 0; border-bottom: 1px solid --border--; border-radius: 0; min-height: 56px; }
+  .modulex-m9--kutulu .modulex-m9-panel-nav a.modulex-m9-oge[aria-current="page"] { background: transparent; color: --accent--; border-color: --border--; }
+
+  @media (max-width: 1024px) {
+    .modulex-m9-nav { display: none; }
+    .modulex-m9-bar-dil { display: none !important; }
+    .modulex-m9-bar-ic,
+    .modulex-m9-bandsiz .modulex-m9-bar-ic { grid-template-columns: 48px minmax(0, 1fr) 48px; gap: 12px; padding-block: 10px; }
+    .modulex-m9-logo { grid-column: 2; }
+    .modulex-m9-hamburger { display: inline-flex; grid-column: 3; justify-self: end; }
+    .modulex-m9-logo img { max-width: min(48vw, 200px); height: calc(--logo_h-- * 0.85); }
+    .modulex-m9--cizgili .modulex-m9-logo img { height: calc(--logo_h-- * 0.95); }
+    .modulex-m9-band-ic { justify-content: center; }
+    .modulex-m9-band-sag { display: none; }
+    .modulex-m9-bilgi li:nth-child(n+3) { display: none; }
+  }
+  @media (max-width: 768px) {
+    .modulex-m9-band { display: none; }
+    .modulex-m9--kutulu .modulex-m9-bar { padding: 8px 10px 0; }
+    .modulex-m9--kutulu .modulex-m9-bar-ic { padding: 6px 8px; border-radius: 12px; }
+  }
+
+  /* W2: mobil tasma kontrolu */
+  @media (max-width: 768px) {
+    [class*="modulex"] {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  /* W2: erisilebilirlik — animasyon kapatma */
+  @media (prefers-reduced-motion: reduce) {
+    [class*="modulex"],
+    [class*="modulex"] * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* 8 Kas 2026: logo gorseli acik zemin icin cizilmis (koyu yazi, saydam); koyu modda koyu header uzerinde kayboluyordu.
+     Koyu modda acik plaka; bilerek acik logolar (logo-acik) haric. */
+  @media (prefers-color-scheme: dark) {
+    .modulex-m9-logo:not([src*="acik"]) {
+      background: #ffffff;
+      padding: 4px 10px;
+      border-radius: 8px;
+      box-sizing: content-box;
+    }
+  }
+</style>
+<script>
+  (function () {
+    var kok = document.querySelector(".modulex-m9");
+    if (!kok) { return; }
+    var dugme = kok.querySelector(".modulex-m9-hamburger");
+    var panel = kok.querySelector(".modulex-m9-panel");
+    var kapat = kok.querySelector(".modulex-m9-kapat");
+    var bar = kok.querySelector(".modulex-m9-bar");
+    var bosluk = kok.querySelector(".modulex-m9-bosluk");
+
+    function ac() {
+      if (!panel) { return; }
+      panel.hidden = false;
+      if (dugme) { dugme.setAttribute("aria-expanded", "true"); }
+      document.body.style.overflow = "hidden";
+      if (kapat) { kapat.focus(); }
+    }
+    function kapa() {
+      if (!panel || panel.hidden) { return; }
+      panel.hidden = true;
+      if (dugme) { dugme.setAttribute("aria-expanded", "false"); dugme.focus(); }
+      document.body.style.overflow = "";
+    }
+    if (dugme) { dugme.addEventListener("click", function () { if (panel && panel.hidden) { ac(); } else { kapa(); } }); }
+    if (kapat) { kapat.addEventListener("click", kapa); }
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") { kapa(); } });
+    /* panel bağlantısına tıklanınca kapat (sayfa içi # bağlantılar için) */
+    if (panel) {
+      panel.addEventListener("click", function (e) {
+        var a = e.target && e.target.closest ? e.target.closest("a") : null;
+        if (a && a.getAttribute("href") && a.getAttribute("href").charAt(0) === "#") { kapa(); }
+      });
+    }
+
+    /* sticky: eşik = çubuğun sayfadaki üst konumu (band yüksekliği); altına inince sabitle + küçült */
+    if (kok.classList.contains("modulex-m9-sticky") && bar && bosluk) {
+      var esik = 0, bekliyor = false, acik = false;
+      function olc() { esik = kok.getBoundingClientRect().top + (window.pageYOffset || 0) + (bar.offsetTop - kok.offsetTop) + 8; }
+      function uygula() {
+        bekliyor = false;
+        var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+        if (!acik && y > esik + bar.offsetHeight) {
+          bosluk.style.height = bar.offsetHeight + "px";
+          kok.classList.add("modulex-m9-kucuk");
+          acik = true;
+        } else if (acik && y <= esik) {
+          kok.classList.remove("modulex-m9-kucuk");
+          bosluk.style.height = "";
+          acik = false;
+        }
+      }
+      olc();
+      window.addEventListener("scroll", function () { if (!bekliyor) { bekliyor = true; window.requestAnimationFrame(uygula); } }, { passive: true });
+      window.addEventListener("resize", function () { if (!acik) { olc(); } });
+    }
+  })();
+</script>

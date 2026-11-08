@@ -1,0 +1,125 @@
+{
+  "name": {
+    "tr": "Hero 6 — Bento",
+    "en": "Hero 6 — Bento",
+    "ar": "هيرو 6 — بينتو"
+  },
+  "description": {
+    "tr": "12 sütunlu bento hero: büyük görsel kart (7 sütun) + küçük kartlar (istatistik / alıntı / mini CTA) + altta geniş metin kartı (eyebrow, h1, paragraf, CTA). Kartlar data[] (= kartlar): {tur: gorsel|sayi|alinti|cta, …} üç dil. Kartlar ince kenar + radius, hover'da hafif yükselme. desing.stil: bento | mozaik (kartlar farklı boyda) | duz (kart zemini yok, çizgi ayraç). Koyu mod token'dan; RTL mantıksal özelliklerle.",
+    "en": "12-column bento hero: large image card (7 cols) + small cards (stat / quote / mini CTA) + a wide text card at the bottom (eyebrow, h1, paragraph, CTA). Cards in data[] (= kartlar): {tur: gorsel|sayi|alinti|cta, …} in three languages. Thin border + radius, slight lift on hover. desing.stil: bento | mozaik (varying card heights) | duz (no card background, hairline separators). Dark mode via tokens; RTL via logical properties.",
+    "ar": "هيرو بينتو بشبكة 12 عمودًا: بطاقة صورة كبيرة (7 أعمدة) + بطاقات صغيرة (إحصائية / اقتباس / دعوة مصغّرة) + بطاقة نصية عريضة في الأسفل (تسمية، h1، فقرة، زر). البطاقات في data[] (= kartlar): {tur: gorsel|sayi|alinti|cta، …} بثلاث لغات. حدود رفيعة وزوايا، ارتفاع خفيف عند التحويم. desing.stil: bento | mozaik (أحجام مختلفة) | duz (بدون خلفية بطاقة، فواصل خطية). الوضع الداكن من الرموز؛ RTL بالخصائص المنطقية."
+  },
+  "version": "1.0.0",
+  "icon": "dashboard",
+  "category": "hero",
+  "tags": ["hero", "bento", "grid", "kart", "istatistik", "alinti", "ar"],
+  "desing": {
+    "stil": "bento",
+    "max": "1200px",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "surface": "var(--mx-site-surface, #f6f6f4)",
+    "surface2": "var(--mx-site-surface-2, #ececea)",
+    "text": "var(--mx-site-text, #1b1b1b)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 72%, var(--mx-site-bg, #ffffff))",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "border": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 12%, transparent)",
+    "radius": "20px",
+    "eyebrow": {
+      "tr": "Tasarım + üretim",
+      "en": "Design + production",
+      "ar": "تصميم + إنتاج"
+    },
+    "title": {
+      "tr": "Fikirden ürüne, tek çatı altında",
+      "en": "From idea to product, under one roof",
+      "ar": "من الفكرة إلى المنتج تحت سقف واحد"
+    },
+    "metin": {
+      "tr": "Tasarım, prototip ve seri üretimi aynı ekip yürütür; süreç kısalır, kalite korunur.",
+      "en": "Design, prototyping and series production are run by the same team; shorter lead times, consistent quality.",
+      "ar": "يدير الفريق نفسه التصميم والنموذج الأولي والإنتاج التسلسلي؛ فتقصر المدة وتُصان الجودة."
+    },
+    "cta1": {
+      "tr": "Projenizi anlatın",
+      "en": "Tell us about your project",
+      "ar": "حدّثنا عن مشروعك"
+    },
+    "cta1_url": "iletisim",
+    "cta2": {
+      "tr": "Çalışmalarımız",
+      "en": "Our work",
+      "ar": "أعمالنا"
+    },
+    "cta2_url": "projeler"
+  },
+  "data": [
+    {
+      "tur": "gorsel",
+      "img": "",
+      "alt": {
+        "tr": "Atölyede üretim anı",
+        "en": "Production moment in the workshop",
+        "ar": "لحظة إنتاج في الورشة"
+      },
+      "etiket": {
+        "tr": "Atölyemiz",
+        "en": "Our workshop",
+        "ar": "ورشتنا"
+      }
+    },
+    {
+      "tur": "sayi",
+      "icon": "factory",
+      "deger": "1.200+",
+      "etiket": {
+        "tr": "Tamamlanan proje",
+        "en": "Completed projects",
+        "ar": "مشروع منجز"
+      }
+    },
+    {
+      "tur": "alinti",
+      "metin": {
+        "tr": "Teslim tarihine sadık kaldılar; kalite beklediğimizin üstündeydi.",
+        "en": "They kept to the delivery date; the quality exceeded what we expected.",
+        "ar": "التزموا بموعد التسليم، وكانت الجودة فوق ما توقعنا."
+      },
+      "kisi": {
+        "tr": "A. Yılmaz",
+        "en": "A. Yilmaz",
+        "ar": "أ. يلماز"
+      },
+      "rol": {
+        "tr": "Satın alma müdürü",
+        "en": "Purchasing manager",
+        "ar": "مدير المشتريات"
+      }
+    },
+    {
+      "tur": "cta",
+      "icon": "calendar_month",
+      "baslik": {
+        "tr": "Ücretsiz keşif",
+        "en": "Free site survey",
+        "ar": "معاينة مجانية"
+      },
+      "metin": {
+        "tr": "48 saat içinde dönüş.",
+        "en": "We reply within 48 hours.",
+        "ar": "نردّ خلال 48 ساعة."
+      },
+      "cta": {
+        "tr": "Randevu al",
+        "en": "Book now",
+        "ar": "احجز الآن"
+      },
+      "url": "iletisim"
+    }
+  ],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "desing/data"
+  }
+}

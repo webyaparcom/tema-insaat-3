@@ -1,0 +1,40 @@
+{
+  "id": "3kmrqbggzo",
+  "name": {
+    "tr": "Devam eden",
+    "en": "Ongoing",
+    "ar": "المشاريع الجارية"
+  },
+  "description": {
+    "tr": "Devam eden ve yakında başlayacak projeler; teslim süresi sözleşmede en fazla 48 aydır.",
+    "en": "Ongoing and upcoming projects; the contractual delivery period is at most 48 months.",
+    "ar": "المشاريع الجارية والقادمة؛ مدة التسليم التعاقدية 48 شهرًا كحدٍّ أقصى."
+  },
+  "keyword": {
+    "tr": "devam eden projeler, teslim süresi",
+    "en": "ongoing projects, delivery period",
+    "ar": "مشاريع جارية، مدة التسليم"
+  },
+  "path": "devam-eden",
+  "icon": "engineering",
+  "category": "bnw7790rw2",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "6lpqep",
+      "qbuqz8"
+    ],
+    "footer": []
+  },
+  "index": 1,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Devam eden",
+    "en": "Ongoing",
+    "ar": "المشاريع الجارية"
+  },
+  "date": "2026-10-31T14:31:22.494Z",
+  "update": "2026-11-05T22:24:56.390Z"
+}
