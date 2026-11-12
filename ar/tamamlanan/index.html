@@ -38,21 +38,21 @@
   <link rel="preload" href="/src/fonts/lora/lora-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/src/fonts/lora/lora-latin-ext-500-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/src/fonts/lora/lora-latin-ext-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/src/fonts/lora.css?v=y5z5s" />
-  <link rel="stylesheet" href="/src/fonts/fraunces.css?v=y5z5s" />
-  <link rel="stylesheet" href="/src/fonts/ibm-plex-sans-arabic.css?v=y5z5s" />
-  <link rel="stylesheet" href="/src/fonts/noto-naskh-arabic.css?v=y5z5s" />
-  <link rel="stylesheet" href="/src/rubik.css?v=y5z5s" />
-  <link rel="stylesheet" href="/src/css.css?v=y5z5s" />
-  <link rel="stylesheet" href="/src/mx-ds.css?v=y5z5s" />
+  <link rel="stylesheet" href="/src/fonts/lora.css?v=lh6st" />
+  <link rel="stylesheet" href="/src/fonts/fraunces.css?v=lh6st" />
+  <link rel="stylesheet" href="/src/fonts/ibm-plex-sans-arabic.css?v=lh6st" />
+  <link rel="stylesheet" href="/src/fonts/noto-naskh-arabic.css?v=lh6st" />
+  <link rel="stylesheet" href="/src/rubik.css?v=lh6st" />
+  <link rel="stylesheet" href="/src/css.css?v=lh6st" />
+  <link rel="stylesheet" href="/src/mx-ds.css?v=lh6st" />
   
-  <link rel="stylesheet" href="/src/mx-ui.css?v=y5z5s" />
+  <link rel="stylesheet" href="/src/mx-ui.css?v=lh6st" />
   <link rel="preload" href="/src/material-symbols-outlined.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/src/material-symbols-outlined.css?v=y5z5s" />
+  <link rel="stylesheet" href="/src/material-symbols-outlined.css?v=lh6st" />
   
-  <link rel="stylesheet" href="/src/cookie.css?v=y5z5s" />
-  <link rel="stylesheet" href="/src/swiper-bundle.min.css?v=y5z5s" />
-  <link rel="shortcut icon" href="/img/icon.png?v=y5z5s" type="image/png" />
+  <link rel="stylesheet" href="/src/cookie.css?v=lh6st" />
+  <link rel="stylesheet" href="/src/swiper-bundle.min.css?v=lh6st" />
+  <link rel="shortcut icon" href="/img/icon.png?v=lh6st" type="image/png" />
   <link rel="apple-touch-icon" href="/img/icon.png" />
   <script type="application/ld+json">
 {
@@ -98,7 +98,7 @@
         "@type": "ImageObject",
         "url": "https://insaat-3.webyapar.com/img/logo.png"
       },
-      "dateModified": "2026-11-05T22:24:56.393Z",
+      "dateModified": "2026-11-12T07:36:09.114Z",
       "breadcrumb": {
         "@id": "https://insaat-3.webyapar.com/ar/tamamlanan/#breadcrumb"
       }
@@ -125,7 +125,7 @@
 }
 </script>
   
-<link rel="stylesheet" href="style.css?v=y5z5s">
+<link rel="stylesheet" href="style.css?v=lh6st">
 </head>
 
 <body>
@@ -239,6 +239,7 @@
       <nav class="h0001-m9-nav h0001-m9-nav--sag" aria-label="التنقل">
         <ul><li><a class="h0001-m9-oge" href="/ar/teklif-al/">اطلب عرض سعر</a></li><li><a class="h0001-m9-oge" href="/ar/hakkimizda/">من نحن</a></li><li><a class="h0001-m9-oge" href="/ar/iletisim/">اتصل بنا</a></li></ul>
       </nav>
+      
       <div class="h0001-m9-bar-dil"><nav class="wm-langbar" aria-label="محدد اللغة"><ul><li class="wm-lang-item"><a href="/tr/tamamlanan/" hreflang="tr" lang="tr">TR</a></li><li class="wm-lang-item"><a href="/en/tamamlanan/" hreflang="en" lang="en">EN</a></li><li class="wm-lang-item wm-lang-active"><a href="/ar/tamamlanan/" hreflang="ar" lang="ar" aria-current="true">AR</a></li></ul></nav></div>
       <button class="h0001-m9-hamburger" type="button" aria-expanded="false" aria-controls="m9-t9kuq0-panel" aria-label="تبديل القائمة">
         <span class="material-symbols-outlined" aria-hidden="true">menu</span>
@@ -290,6 +291,8 @@
     }
     if (dugme) { dugme.addEventListener("click", function () { if (panel && panel.hidden) { ac(); } else { kapa(); } }); }
     if (kapat) { kapat.addEventListener("click", kapa); }
+    
+    document.addEventListener("click", function (e) { if (panel && !panel.hidden && !panel.contains(e.target) && !(dugme && dugme.contains(e.target))) { kapa(); } });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") { kapa(); } });
     
     if (panel) {
@@ -476,7 +479,7 @@
     <nav class="wm-langbar" aria-label="محدد اللغة"><ul><li class="wm-lang-item"><a href="/tr/tamamlanan/" hreflang="tr" lang="tr">TR</a></li><li class="wm-lang-item"><a href="/en/tamamlanan/" hreflang="en" lang="en">EN</a></li><li class="wm-lang-item wm-lang-active"><a href="/ar/tamamlanan/" hreflang="ar" lang="ar" aria-current="true">AR</a></li></ul></nav>
     <p>&copy; 2026 Sarnıç Yapı. جميع الحقوق محفوظة.</p>
   </footer>
-  <div class="f0001-dk" role="contentinfo" aria-label="معلومات العرض التجريبي">
+  <nav class="f0000-f1__bar" aria-label="وصول سريع"><a href="tel:+903420000000" dir="ltr"><span class="material-symbols-outlined" aria-hidden="true">call</span>اتصال</a><a href="mailto:info@sarnicyapi.example"><span class="material-symbols-outlined" aria-hidden="true">mail</span>بريد</a><button type="button" class="f0000-f1__bar-dil" aria-haspopup="dialog" aria-expanded="false"><span class="material-symbols-outlined" aria-hidden="true">language</span>اللغة · AR</button></nav><div class="f0000-f1__sheet" hidden><div class="f0000-f1__sheet-ic" role="dialog" aria-modal="true" aria-label="اللغة"><div class="f0000-f1__sheet-ust"><strong>اللغة</strong><button type="button" class="f0000-f1__sheet-kapat" aria-label="إغلاق"><span class="material-symbols-outlined" aria-hidden="true">close</span></button></div><div class="f0000-f1__sheet-liste"><ul><li class="wm-lang-item"><a href="/tr/tamamlanan/" hreflang="tr" lang="tr">TR</a></li><li class="wm-lang-item"><a href="/en/tamamlanan/" hreflang="en" lang="en">EN</a></li><li class="wm-lang-item wm-lang-active"><a href="/ar/tamamlanan/" hreflang="ar" lang="ar" aria-current="true">AR</a></li></ul></div></div></div><script>(function(){var b=document.querySelector(".f0000-f1__bar-dil"),sh=document.querySelector(".f0000-f1__sheet");if(!b||!sh){return;}function kapa(){sh.hidden=true;b.setAttribute("aria-expanded","false");b.focus();}b.addEventListener("click",function(){var ic=sh.querySelector(".f0000-f1__sheet-liste");if(ic&&!ic.firstChild){var kaynak=document.querySelector(".wm-langbar ul")||document.querySelector("[class*=langs]");if(kaynak){var kopya=kaynak.cloneNode(true);ic.appendChild(kopya);}else{var linkler=document.querySelectorAll("a[hreflang]");var ul=document.createElement("ul");for(var i=0;i<linkler.length;i++){if(sh.contains(linkler[i])){continue;}var li=document.createElement("li");li.appendChild(linkler[i].cloneNode(true));ul.appendChild(li);}if(ul.firstChild){ic.appendChild(ul);}else{b.hidden=true;return;}}}var ac=sh.hidden;sh.hidden=!ac;b.setAttribute("aria-expanded",ac?"true":"false");if(ac){var k=sh.querySelector(".f0000-f1__sheet-kapat");if(k){k.focus();}}});sh.addEventListener("click",function(e){if(e.target===sh||(e.target.closest&&e.target.closest(".f0000-f1__sheet-kapat"))){kapa();}});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sh.hidden){kapa();}});})();</script><div class="f0001-dk" role="contentinfo" aria-label="معلومات العرض التجريبي">
   <p class="f0001-dk-text">تم إعداد هذا العرض التجريبي بواسطة <bdi class="f0001-dk-brand" dir="ltr">Webyapar</bdi> — <a class="f0001-dk-cta" href="https://webyapar.com/temalar#insaat-3" target="_blank" rel="noopener noreferrer"><span>اطلب هذا القالب</span><span class="mx-visually-hidden"> (يفتح في علامة تبويب جديدة)</span><span class="material-symbols-outlined mx-flip f0001-dk-arrow" aria-hidden="true">arrow_forward</span></a></p>
 </div>
 
@@ -485,10 +488,10 @@
   
 
   <script defer src="/src/swiper-bundle.min.js"></script>
-  <script defer src="/src/mx-ui.js?v=y5z5s"></script>
-  <script defer src="/src/mx-store.js?v=y5z5s"></script>
-  <script defer type="text/javascript" src="/src/js.js?v=y5z5s"></script>
-  <script defer src="/src/cookie.js?v=y5z5s"></script>
+  <script defer src="/src/mx-ui.js?v=lh6st"></script>
+  <script defer src="/src/mx-store.js?v=lh6st"></script>
+  <script defer type="text/javascript" src="/src/js.js?v=lh6st"></script>
+  <script defer src="/src/cookie.js?v=lh6st"></script>
 
 </body>
 
