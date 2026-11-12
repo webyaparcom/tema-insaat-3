@@ -12,6 +12,7 @@
       <nav class="modulex-m9-nav modulex-m9-nav--sag" aria-label="@navigation@">
         <ul>{{m9sag}}</ul>
       </nav>
+      {{m9cta}}
       <div class="modulex-m9-bar-dil">{{langbar}}</div>
       <button class="modulex-m9-hamburger" type="button" aria-expanded="false" aria-controls="m9-{{id}}-panel" aria-label="@menu-toggle@">
         <span class="material-symbols-outlined" aria-hidden="true">menu</span>
@@ -44,8 +45,9 @@
     box-sizing: border-box;
     position: relative;
     width: 100%;
-    background: --bg--;
-    color: --text--;
+    /* 12 Kas 2026 (kullanıcı emri): üst bar rengi = alt barın rengi (--bgcolor--/--color--) */
+    background: --bgcolor--;
+    color: --color--;
     z-index: 900;
   }
   .modulex-m9 *,
@@ -101,11 +103,16 @@
   /* --- çubuk --- */
   .modulex-m9-bar {
     width: 100%;
-    background: --bg--;
-    color: --text--;
-    border-bottom: 1px solid --border--;
+    /* 12 Kas 2026 (kullanıcı emri): üst bar = alt bar rengine (--bgcolor--/--color--) */
+    background: --bgcolor--;
+    color: --color--;
+    border-bottom: 1px solid --bordercolor--;
     transition: box-shadow 0.3s ease, padding 0.3s ease;
   }
+  /* bar içindeki hedefler: beyaz metin + altın vurgu; çekmece (panel) kendi paletini korur */
+  .modulex-m9-bar .modulex-m9-hamburger { color: --color--; border-color: --bordercolor--; }
+  .modulex-m9-bar .modulex-m9-hamburger:hover { background: color-mix(in srgb, --color-- 14%, transparent); }
+  /* 12 Kas 2026 (kullanici emri): logo arkasindaki beyaz plaka kaldırildi — logo bari dogrudan kullanir */
   .modulex-m9-bar-ic {
     max-width: --max--;
     margin-inline: auto;
@@ -154,6 +161,11 @@
   .modulex-m9 a.modulex-m9-oge:focus-visible::after,
   .modulex-m9 a.modulex-m9-oge[aria-current="page"]::after { transform: scaleX(1); }
   .modulex-m9 a.modulex-m9-oge[aria-current="page"] { color: --accent--; font-weight: 700; }
+  /* 12 Kas 2026: bar'daki linkler beyaz (bar zemini --bgcolor--); çekmece linkleri değişmez */
+  .modulex-m9 .modulex-m9-bar a.modulex-m9-oge { color: --color--; }
+  .modulex-m9 .modulex-m9-bar a.modulex-m9-oge:hover,
+  .modulex-m9 .modulex-m9-bar a.modulex-m9-oge:focus-visible,
+  .modulex-m9 .modulex-m9-bar a.modulex-m9-oge[aria-current="page"] { color: --color--; outline-color: --color--; }
 
   .modulex-m9-logo { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
   .modulex-m9-logo img {
@@ -191,6 +203,23 @@
   .modulex-m9-hamburger .material-symbols-outlined,
   .modulex-m9-kapat .material-symbols-outlined { font-size: 28px; }
 
+  /* --- 12 Kas 2026: masaüstü CTA düğmesi (desing.cta_ad + cta_url; yoksa slot gizli) --- */
+  .modulex-m9-bar-ic { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto; }
+  .modulex-m9-cta-slot:empty { display: none; }
+  .modulex-m9-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    min-height: 48px; padding: 10px 22px; border-radius: 999px;
+    background: var(--mx-site-gold, #F2C879); color: var(--mx-site-text, #1b1b1b);
+    font-size: 0.95rem; font-weight: 700; letter-spacing: 0.01em;
+    text-decoration: none; white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .modulex-m9-cta .material-symbols-outlined { font-size: 20px; }
+  .modulex-m9-cta:hover,
+  .modulex-m9-cta:focus-visible { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3); }
+  @media (max-width: 1024px) { .modulex-m9-cta-slot { display: none; } }
+
   /* --- sticky: kaydırınca sabit + küçük --- */
   .modulex-m9-bosluk { display: none; }
   .modulex-m9-kucuk .modulex-m9-bosluk { display: block; }
@@ -209,23 +238,33 @@
     to { transform: translateY(0); }
   }
 
-  /* --- mobil panel (tam ekran) --- */
+  /* --- mobil panel: SOL ÇEKMECE (kural 11 Kas 2026: üst menü çekmecesi sağda değil SOLDA açılır) --- */
   .modulex-m9-panel {
     position: fixed;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    inset-inline-start: 0;
+    width: min(86vw, 380px);
     z-index: 10000;
     display: flex;
     flex-direction: column;
     background: --bg--;
     color: --text--;
     overflow-y: auto;
-    padding: 12px clamp(16px, 5vw, 28px) 28px;
-    animation: modulexM9Panel 0.3s ease;
+    overscroll-behavior: contain;
+    padding: 12px 20px calc(88px + env(safe-area-inset-bottom, 0px));
+    box-shadow: 0 0 0 100vmax rgba(20, 14, 12, 0.55), 10px 0 32px rgba(0, 0, 0, 0.25);
+    animation: modulexM9Panel 0.28s ease;
   }
   .modulex-m9-panel[hidden] { display: none; }
   @keyframes modulexM9Panel {
-    from { opacity: 0; transform: translateY(-12px); }
-    to { opacity: 1; transform: none; }
+    from { transform: translateX(-100%); }
+    to { transform: none; }
+  }
+  [dir="rtl"] .modulex-m9-panel { animation-name: modulexM9PanelRtl; }
+  @keyframes modulexM9PanelRtl {
+    from { transform: translateX(100%); }
+    to { transform: none; }
   }
   .modulex-m9-panel-ust { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
   .modulex-m9-logo--panel img { height: calc(--logo_h-- * 0.8); }
@@ -268,10 +307,10 @@
   .modulex-m9--kutulu .modulex-m9-band .material-symbols-outlined { color: --accentText--; }
   .modulex-m9--kutulu .modulex-m9-bar { border-bottom: 0; padding: 12px clamp(12px, 3vw, 24px) 0; }
   .modulex-m9--kutulu .modulex-m9-bar-ic {
-    border: 1px solid --border--;
+    border: 1px solid --bordercolor--;
     border-radius: 16px;
     padding: 10px 16px;
-    background: --bg--;
+    background: --bgcolor--;
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
   }
   .modulex-m9--kutulu a.modulex-m9-oge { border: 1px solid --border--; border-radius: 999px; padding: 8px 16px; min-height: 42px; }
@@ -285,16 +324,26 @@
 
   @media (max-width: 1024px) {
     .modulex-m9-nav { display: none; }
-    .modulex-m9-bar-dil { display: none !important; }
     .modulex-m9-bar-ic,
-    .modulex-m9-bandsiz .modulex-m9-bar-ic { grid-template-columns: 48px minmax(0, 1fr) 48px; gap: 12px; padding-block: 10px; }
-    .modulex-m9-logo { grid-column: 2; }
-    .modulex-m9-hamburger { display: inline-flex; grid-column: 3; justify-self: end; }
+    .modulex-m9-bandsiz .modulex-m9-bar-ic { grid-template-columns: 48px minmax(0, 1fr) auto; gap: 12px; padding-block: 10px; }
+    .modulex-m9-logo { grid-column: 2; grid-row: 1; }
+    .modulex-m9-hamburger { display: inline-flex; grid-column: 1; grid-row: 1; justify-self: start; }
     .modulex-m9-logo img { max-width: min(48vw, 200px); height: calc(--logo_h-- * 0.85); }
     .modulex-m9--cizgili .modulex-m9-logo img { height: calc(--logo_h-- * 0.95); }
     .modulex-m9-band-ic { justify-content: center; }
     .modulex-m9-band-sag { display: none; }
     .modulex-m9-bilgi li:nth-child(n+3) { display: none; }
+  }
+  /* 12 Kas 2026 (kullanici emri): tablette (769-1024) dil bandda → bar'da gizle */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .modulex-m9-bar-dil { display: none !important; }
+  }
+  /* 12 Kas 2026 (kullanici emri): mobilde dil logonun sağındaki bar'da; çekmece içindeki dil satırı kapanır (çift dil yok) */
+  @media (max-width: 768px) {
+    .modulex-m9-bar-dil { display: block !important; position: relative; grid-column: 3; grid-row: 1; justify-self: end; }
+    .modulex-m9-bar-dil .wm-langbar { flex-direction: row; flex-wrap: nowrap; gap: 4px; padding: 2px; margin: 0; }
+    .modulex-m9-bar-dil .wm-langbar li a { min-height: 44px; padding: 6px 10px; }
+    .modulex-m9-panel-alt .wm-langbar { display: none; }
   }
   @media (max-width: 768px) {
     .modulex-m9-band { display: none; }
@@ -329,6 +378,29 @@
       box-sizing: content-box;
     }
   }
+
+  /* Mobil uygulama kuralı (12 Kas 2026): çekmece içi bağlantı/çip hedefleri >= 48px (yalnız <=1024px; referans modülün görünümü aynı) */
+  @media (max-width: 1024px) {
+    .modulex-m9 a.modulex-m9-bilgi-link,
+    .modulex-m9 a.modulex-m9-bilgi-link:link,
+    .modulex-m9 a.modulex-m9-bilgi-link:visited,
+    .modulex-m9 a.modulex-m9-chip,
+    .modulex-m9 a.modulex-m9-chip:link,
+    .modulex-m9 a.modulex-m9-chip:visited {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      box-sizing: border-box;
+    }
+
+    .modulex-m9-panel-alt .wm-langbar li a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      min-height: 48px;
+    }
+  }
 </style>
 <script>
   (function () {
@@ -355,6 +427,8 @@
     }
     if (dugme) { dugme.addEventListener("click", function () { if (panel && panel.hidden) { ac(); } else { kapa(); } }); }
     if (kapat) { kapat.addEventListener("click", kapa); }
+    /* çekmece dışına (karartılmış alana) dokununca kapat */
+    document.addEventListener("click", function (e) { if (panel && !panel.hidden && !panel.contains(e.target) && !(dugme && dugme.contains(e.target))) { kapa(); } });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") { kapa(); } });
     /* panel bağlantısına tıklanınca kapat (sayfa içi # bağlantılar için) */
     if (panel) {

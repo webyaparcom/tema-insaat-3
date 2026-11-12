@@ -66,6 +66,13 @@ for (var m9k = 0; m9k < m9Ogeler.length; m9k++) {
   if (m9k < m9Yarim) { m9Sol += m9Li1; } else { m9Sag += m9Li1; }
 }
 
+/* 12 Kas 2026: masaüstü CTA düğmesi — desing.cta_ad + desing.cta_url (isteğe bağlı; yoksa slot gizli) */
+var m9CtaAd = m9Dil(m9Des.cta_ad).trim();
+var m9CtaUrl = m9Href(m9Des.cta_url || m9Des.cta_href || "");
+var m9Cta = (m9CtaAd && m9CtaUrl)
+  ? '<div class="modulex-m9-cta-slot"><a class="modulex-m9-cta" href="' + m9CtaUrl + '"><span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span><span>' + m9Esc(m9CtaAd) + "</span></a></div>"
+  : "";
+
 /* --- bilgi bandı --- */
 var m9Tel = m9Dil(m9Des.phone).trim() || (typeof m9Setting.phone === "string" ? m9Setting.phone.trim() : "");
 var m9Posta = m9Dil(m9Des.email).trim() || (typeof m9Setting.email === "string" ? m9Setting.email.trim() : "");
@@ -104,4 +111,5 @@ html = html
   .replace(/\{\{m9bandmobil\}\}/g, function () { return m9BandMobil; })
   .replace(/\{\{m9sol\}\}/g, function () { return m9Sol; })
   .replace(/\{\{m9sag\}\}/g, function () { return m9Sag; })
+  .replace(/\{\{m9cta\}\}/g, function () { return m9Cta; })
   .replace(/\{\{m9tum\}\}/g, function () { return m9Tum; });

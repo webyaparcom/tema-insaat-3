@@ -29,6 +29,9 @@
     "border": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 14%, transparent)",
     "band_bg": "var(--mx-site-surface-2, #ececea)",
     "band_text": "var(--mx-site-text, #1b1b1b)",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "color": "var(--mx-site-text, #1b1b1b)",
+    "bordercolor": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 14%, transparent)",
     "phone": "",
     "email": "",
     "hours": {
