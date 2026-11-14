@@ -36,7 +36,8 @@
           "tr": "Üye Girişi",
           "en": "Login",
           "ar": "تسجيل الدخول"
-        }
+        },
+        "hataBildir": "https://webyapar.com/api/portal/tema-hata.js"
       },
       "version": "1.0.0",
       "icon": "info",
@@ -1004,7 +1005,23 @@
         "social": [],
         "bgcolor": "var(--mx-site-bg, #ffffff)",
         "color": "var(--mx-site-text, #1b1b1b)",
-        "bordercolor": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 14%, transparent)"
+        "bordercolor": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 14%, transparent)",
+        "search": false,
+        "search_url": "urunler/",
+        "search_placeholder": {
+          "tr": "Ürün ara…",
+          "en": "Search products…",
+          "es": "Buscar productos…",
+          "fr": "Rechercher un produit…",
+          "de": "Produkt suchen…"
+        },
+        "search_label": {
+          "tr": "Ara",
+          "en": "Search",
+          "es": "Buscar",
+          "fr": "Rechercher",
+          "de": "Suchen"
+        }
       },
       "data": [],
       "id": "t9kuq0",

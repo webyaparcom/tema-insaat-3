@@ -73,6 +73,18 @@ var m9Cta = (m9CtaAd && m9CtaUrl)
   ? '<div class="modulex-m9-cta-slot"><a class="modulex-m9-cta" href="' + m9CtaUrl + '"><span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span><span>' + m9Esc(m9CtaAd) + "</span></a></div>"
   : "";
 
+/* 14 Kas 2026: panel (çekmece) ürün arama — desing.search opt-in (varsayılan kapalı).
+   Form GET: /<dil>/<search_url>/?q=... — vitrin (eticaret-urun-vitrin, search:true) ?q= ile süzer. */
+var m9SearchUrl = m9Href(m9Des.search_url || m9Des.searchUrl || "urunler/");
+var m9SearchPh = m9Dil(m9Des.search_placeholder || m9Des.searchPlaceholder || { tr: "Ürün ara…", en: "Search products…" }).trim() || "Ürün ara…";
+var m9SearchAd = m9Dil(m9Des.search_label || m9Des.searchLabel || { tr: "Ara", en: "Search" }).trim() || "Ara";
+var m9Search = (m9Dogru(m9Des.search, false) && m9SearchUrl)
+  ? '<form class="modulex-m9-search" role="search" action="' + m9SearchUrl + '" method="get">'
+  + '<input type="search" name="q" value="" placeholder="' + m9Esc(m9SearchPh) + '" aria-label="' + m9Esc(m9SearchAd) + '" autocomplete="off" />'
+  + '<button type="submit" aria-label="' + m9Esc(m9SearchAd) + '"><span class="material-symbols-outlined" aria-hidden="true">search</span></button>'
+  + '</form>'
+  : "";
+
 /* --- bilgi bandı --- */
 var m9Tel = m9Dil(m9Des.phone).trim() || (typeof m9Setting.phone === "string" ? m9Setting.phone.trim() : "");
 var m9Posta = m9Dil(m9Des.email).trim() || (typeof m9Setting.email === "string" ? m9Setting.email.trim() : "");
@@ -112,4 +124,5 @@ html = html
   .replace(/\{\{m9sol\}\}/g, function () { return m9Sol; })
   .replace(/\{\{m9sag\}\}/g, function () { return m9Sag; })
   .replace(/\{\{m9cta\}\}/g, function () { return m9Cta; })
+  .replace(/\{\{m9search\}\}/g, function () { return m9Search; })
   .replace(/\{\{m9tum\}\}/g, function () { return m9Tum; });

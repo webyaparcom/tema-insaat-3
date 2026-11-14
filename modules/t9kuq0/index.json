@@ -1,50 +1,73 @@
 {
-  "name": {
-    "tr": "Menü 9 — Ortalı logo",
-    "en": "Menu 9 — Centered logo",
-    "ar": "القائمة 9 — شعار في المنتصف"
+ "name": {
+  "tr": "Menü 9 — Ortalı logo",
+  "en": "Menu 9 — Centered logo",
+  "ar": "القائمة 9 — شعار في المنتصف"
+ },
+ "description": {
+  "tr": "Üstte ince bilgi bandı (telefon, e-posta, çalışma saati, sosyal, dil seçici — desing.bilgi_bandi ile açılır/kapanır), altında ortada logo; menü öğeleri logonun iki yanına bölünür (tek sayıda ise fazlası sağa). Mobilde hamburger + tam ekran panel. desing.sticky: kaydırınca küçülen sabit çubuk (300 ms). Ek bağlantılar data[] = [{name{tr,en,ar}, url}]. desing.stil: ince | cizgili | kutulu. Renkler yalnız desing anahtarı + var(--mx-site-*) — koyu mod otomatik. Üç dil + RTL.",
+  "en": "Thin info band on top (phone, email, working hours, social, language switcher — toggled by desing.bilgi_bandi), logo centered below; menu items split on both sides of the logo (odd count → extra item on the end side). Mobile: hamburger + full-screen panel. desing.sticky: fixed bar that shrinks on scroll (300 ms). Extra links via data[] = [{name{tr,en,ar}, url}]. desing.stil: ince | cizgili | kutulu. Colours only from desing keys + var(--mx-site-*) — dark mode automatic. Three languages + RTL.",
+  "ar": "شريط معلومات رفيع في الأعلى (هاتف، بريد، ساعات العمل، شبكات اجتماعية، محدد اللغة — يُفعَّل عبر desing.bilgi_bandi)، وتحته الشعار في المنتصف؛ تتوزع عناصر القائمة على جانبي الشعار (العدد الفردي → العنصر الزائد في جهة النهاية). على الجوال: زر القائمة + لوحة بملء الشاشة. desing.sticky: شريط ثابت يتقلّص عند التمرير (300 ms). روابط إضافية عبر data[] = [{name{tr,en,ar}, url}]. desing.stil: ince | cizgili | kutulu. الألوان من مفاتيح desing و var(--mx-site-*) فقط — الوضع الداكن تلقائي. ثلاث لغات + RTL."
+ },
+ "version": "1.0.1",
+ "icon": "align_horizontal_center",
+ "category": "menu",
+ "tags": [
+  "menu",
+  "ortali-logo",
+  "centered",
+  "bilgi-bandi",
+  "sticky",
+  "ar"
+ ],
+ "desing": {
+  "stil": "ince",
+  "logo": "{{logo}}",
+  "logo_h": "56px",
+  "max": "1200px",
+  "bilgi_bandi": true,
+  "sticky": true,
+  "showlang": true,
+  "bg": "var(--mx-site-bg, #ffffff)",
+  "text": "var(--mx-site-text, #1b1b1b)",
+  "muted": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 70%, var(--mx-site-bg, #ffffff))",
+  "accent": "var(--mx-site-primary, #2563eb)",
+  "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+  "border": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 14%, transparent)",
+  "band_bg": "var(--mx-site-surface-2, #ececea)",
+  "band_text": "var(--mx-site-text, #1b1b1b)",
+  "bgcolor": "var(--mx-site-bg, #ffffff)",
+  "color": "var(--mx-site-text, #1b1b1b)",
+  "bordercolor": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 14%, transparent)",
+  "phone": "",
+  "email": "",
+  "hours": {
+   "tr": "Pzt–Cum 09:00–18:00",
+   "en": "Mon–Fri 09:00–18:00",
+   "ar": "الإثنين–الجمعة 09:00–18:00"
   },
-  "description": {
-    "tr": "Üstte ince bilgi bandı (telefon, e-posta, çalışma saati, sosyal, dil seçici — desing.bilgi_bandi ile açılır/kapanır), altında ortada logo; menü öğeleri logonun iki yanına bölünür (tek sayıda ise fazlası sağa). Mobilde hamburger + tam ekran panel. desing.sticky: kaydırınca küçülen sabit çubuk (300 ms). Ek bağlantılar data[] = [{name{tr,en,ar}, url}]. desing.stil: ince | cizgili | kutulu. Renkler yalnız desing anahtarı + var(--mx-site-*) — koyu mod otomatik. Üç dil + RTL.",
-    "en": "Thin info band on top (phone, email, working hours, social, language switcher — toggled by desing.bilgi_bandi), logo centered below; menu items split on both sides of the logo (odd count → extra item on the end side). Mobile: hamburger + full-screen panel. desing.sticky: fixed bar that shrinks on scroll (300 ms). Extra links via data[] = [{name{tr,en,ar}, url}]. desing.stil: ince | cizgili | kutulu. Colours only from desing keys + var(--mx-site-*) — dark mode automatic. Three languages + RTL.",
-    "ar": "شريط معلومات رفيع في الأعلى (هاتف، بريد، ساعات العمل، شبكات اجتماعية، محدد اللغة — يُفعَّل عبر desing.bilgi_bandi)، وتحته الشعار في المنتصف؛ تتوزع عناصر القائمة على جانبي الشعار (العدد الفردي → العنصر الزائد في جهة النهاية). على الجوال: زر القائمة + لوحة بملء الشاشة. desing.sticky: شريط ثابت يتقلّص عند التمرير (300 ms). روابط إضافية عبر data[] = [{name{tr,en,ar}, url}]. desing.stil: ince | cizgili | kutulu. الألوان من مفاتيح desing و var(--mx-site-*) فقط — الوضع الداكن تلقائي. ثلاث لغات + RTL."
+  "social": [],
+  "search": false,
+  "search_url": "urunler/",
+  "search_placeholder": {
+   "tr": "Ürün ara…",
+   "en": "Search products…",
+   "es": "Buscar productos…",
+   "fr": "Rechercher un produit…",
+   "de": "Produkt suchen…"
   },
-  "version": "1.0.0",
-  "icon": "align_horizontal_center",
-  "category": "menu",
-  "tags": ["menu", "ortali-logo", "centered", "bilgi-bandi", "sticky", "ar"],
-  "desing": {
-    "stil": "ince",
-    "logo": "{{logo}}",
-    "logo_h": "56px",
-    "max": "1200px",
-    "bilgi_bandi": true,
-    "sticky": true,
-    "showlang": true,
-    "bg": "var(--mx-site-bg, #ffffff)",
-    "text": "var(--mx-site-text, #1b1b1b)",
-    "muted": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 70%, var(--mx-site-bg, #ffffff))",
-    "accent": "var(--mx-site-primary, #2563eb)",
-    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
-    "border": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 14%, transparent)",
-    "band_bg": "var(--mx-site-surface-2, #ececea)",
-    "band_text": "var(--mx-site-text, #1b1b1b)",
-    "bgcolor": "var(--mx-site-bg, #ffffff)",
-    "color": "var(--mx-site-text, #1b1b1b)",
-    "bordercolor": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 14%, transparent)",
-    "phone": "",
-    "email": "",
-    "hours": {
-      "tr": "Pzt–Cum 09:00–18:00",
-      "en": "Mon–Fri 09:00–18:00",
-      "ar": "الإثنين–الجمعة 09:00–18:00"
-    },
-    "social": []
-  },
-  "data": [],
-  "veri": {
-    "statik": true,
-    "dinamik": false,
-    "kaynak": "desing/data"
+  "search_label": {
+   "tr": "Ara",
+   "en": "Search",
+   "es": "Buscar",
+   "fr": "Rechercher",
+   "de": "Suchen"
   }
+ },
+ "data": [],
+ "veri": {
+  "statik": true,
+  "dinamik": false,
+  "kaynak": "desing/data"
+ }
 }
