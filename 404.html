@@ -7,11 +7,11 @@
 <title>404 — Sarnıç Yapı</title>
 </head>
 <body>
-<link rel="stylesheet" href="/src/rubik.css?v=b301v" />
+<link rel="stylesheet" href="/src/rubik.css?v=xhue0" />
 <nav>
   <div href="/" class="menu">
     <a href="/" class="website_name"
-      ><img src="/img/logo.png?v=b301v" width="300" alt="Sarnıç Yapı Logo"
+      ><img src="/img/logo.png?v=xhue0" width="300" alt="Sarnıç Yapı Logo"
     /></a>
   </div>
 </nav>
@@ -828,7 +828,7 @@
 <script>
   setTimeout(function() {
     var currentPath = window.location.pathname;
-    var rtlLanguages = ['ar', 'he', 'fa']; // RTL diller: Arapça, İbranice, Farsça
+    var rtlLanguages = ['ar', 'fa', 'he', 'ur']; // RTL diller (services/webmaker/langKatalog.js yon:rtl aynası): Arapça, Farsça, İbranice, Urduca
     var langMatch = currentPath.match(/^\/([a-z]{2})\//);
     var currentLang = langMatch ? langMatch[1] : '';
     if (rtlLanguages.indexOf(currentLang) !== -1) {
