@@ -1,12 +1,31 @@
 {
-  "name": "Karşılaştırma / Paket Tablosu",
-  "description": "Sütun = paket (2–4), satır = özellik; hücre ✓ / ✗ / metin; «önerilen» sütun vurgusu (token); mobilde sütunlar yatay kaydırılır, ilk sütun sabit (position: sticky); altta CTA satırı. desing.stil: cizgili (zebra + çizgi) | kartli-sutun (her sütun ayrı kart) | sade. Veri: desing.paketler[] = [{id, ad{tr,en,ar}, fiyat, fiyatNot{}, onerilen, ctaLabel{}?, url}], data[] = satırlar [{ad{}, degerler[]}] (deger: true/false/sayı/metin/{tr,en,ar}). Renkler yalnız token; koyu mod otomatik; RTL mantıksal CSS.",
-  "version": "1.0.0",
-  "icon": "table_chart",
+  "name": {
+    "tr": "Karşılaştırma — Yapışkan Başlıklı Tablo",
+    "en": "Comparison — Sticky Header Table",
+    "ar": "مقارنة — جدول برأس ثابت"
+  },
+  "description": "Uzun özellik listeleri için: paket adları ve düğmeleri tablo başlığında kaydırırken ekranın üstünde yapışık kalır; satırlar gruplara ayrılır (grup başlık satırı); «Yalnız farkları göster» anahtarı tüm paketlerde aynı olan satırları gizler. Mobilde tablo yatay kaydırılır, ilk sütun sabit. Veri karsilastirma-tablo ile aynı + isteğe bağlı satır.grup{}.",
+  "path": "karsilastirma-tablo-3",
+  "local": "body",
   "category": "fiyat",
-  "tags": ["karşılaştırma", "paket", "fiyat", "tablo", "pricing", "compare", "ar"],
+  "subCategory": "yapiskan-tablo",
+  "version": "1.0.0",
+  "update": "2026-11-01",
+  "icon": "table_rows",
+  "tags": [
+    "karşılaştırma",
+    "tablo",
+    "sticky",
+    "grup",
+    "compare",
+    "ar"
+  ],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "desing.paketler + data[]"
+  },
   "desing": {
-    "stil": "cizgili",
     "max": "1200px",
     "bgcolor": "var(--mx-site-bg, #ffffff)",
     "textcolor": "var(--mx-site-text, #1b1b1b)",
@@ -17,20 +36,16 @@
     "accentText": "var(--mx-site-primary-contrast, #ffffff)",
     "bordercolor": "color-mix(in srgb, var(--mx-site-text, #1b1b1b) 16%, transparent)",
     "radius": "16px",
-    "eyebrow": {
-      "tr": "Paketler",
-      "en": "Plans",
-      "ar": "الباقات"
-    },
+    "stickyTop": "0px",
     "title": {
-      "tr": "Size uygun paketi seçin",
-      "en": "Choose the plan that fits you",
-      "ar": "اختر الباقة المناسبة لك"
+      "tr": "Başlık",
+      "en": "Heading",
+      "ar": "العنوان"
     },
     "description": {
-      "tr": "Tüm paketlerde kurulum ve ilk ay destek ücretsizdir. İstediğiniz zaman yükseltebilirsiniz.",
-      "en": "Setup and the first month of support are free in every plan. Upgrade whenever you like.",
-      "ar": "التركيب ودعم الشهر الأول مجانيان في جميع الباقات، ويمكنك الترقية في أي وقت."
+      "tr": "Kısa açıklama",
+      "en": "Short description",
+      "ar": "وصف قصير"
     },
     "featureHeader": {
       "tr": "Özellik",
@@ -53,42 +68,51 @@
       "ar": "غير مشمول"
     },
     "ctaLabel": {
-      "tr": "Teklif al",
-      "en": "Get a quote",
-      "ar": "اطلب عرض سعر"
+      "tr": "Seç",
+      "en": "Choose",
+      "ar": "اختر"
+    },
+    "diffLabel": {
+      "tr": "Yalnız farkları göster",
+      "en": "Show differences only",
+      "ar": "إظهار الاختلافات فقط"
     },
     "tableLabel": {
       "tr": "Paket karşılaştırma tablosu",
       "en": "Plan comparison table",
       "ar": "جدول مقارنة الباقات"
     },
-    "scrollHint": {
-      "tr": "Tabloyu yana kaydırın",
-      "en": "Swipe the table sideways",
-      "ar": "اسحب الجدول جانبيًا"
-    },
     "paketler": [
       {
-        "id": "baslangic",
-        "ad": { "tr": "Başlangıç", "en": "Starter", "ar": "البداية" },
-        "fiyat": "₺4.900",
-        "fiyatNot": { "tr": "tek seferlik", "en": "one-off", "ar": "دفعة واحدة" },
+        "id": "a",
+        "ad": {
+          "tr": "Paket adı",
+          "en": "Plan name",
+          "ar": "اسم الباقة"
+        },
+        "fiyat": "",
         "onerilen": false,
         "url": ""
       },
       {
-        "id": "profesyonel",
-        "ad": { "tr": "Profesyonel", "en": "Professional", "ar": "الاحترافية" },
-        "fiyat": "₺9.900",
-        "fiyatNot": { "tr": "tek seferlik", "en": "one-off", "ar": "دفعة واحدة" },
+        "id": "b",
+        "ad": {
+          "tr": "Paket adı",
+          "en": "Plan name",
+          "ar": "اسم الباقة"
+        },
+        "fiyat": "",
         "onerilen": true,
         "url": ""
       },
       {
-        "id": "kurumsal",
-        "ad": { "tr": "Kurumsal", "en": "Enterprise", "ar": "المؤسسية" },
+        "id": "c",
+        "ad": {
+          "tr": "Paket adı",
+          "en": "Plan name",
+          "ar": "اسم الباقة"
+        },
         "fiyat": "",
-        "fiyatNot": { "tr": "Teklife göre", "en": "Custom quote", "ar": "حسب العرض" },
         "onerilen": false,
         "url": ""
       }
@@ -96,45 +120,86 @@
   },
   "data": [
     {
-      "ad": { "tr": "Sayfa sayısı", "en": "Number of pages", "ar": "عدد الصفحات" },
+      "grup": {
+        "tr": "Grup adı",
+        "en": "Group name",
+        "ar": "اسم المجموعة"
+      },
+      "ad": {
+        "tr": "Özellik adı",
+        "en": "Feature name",
+        "ar": "اسم الميزة"
+      },
       "degerler": [
-        { "tr": "5'e kadar", "en": "Up to 5", "ar": "حتى 5" },
-        { "tr": "15'e kadar", "en": "Up to 15", "ar": "حتى 15" },
-        { "tr": "Sınırsız", "en": "Unlimited", "ar": "غير محدود" }
+        true,
+        true,
+        true
       ]
     },
     {
-      "ad": { "tr": "Çok dilli yayın", "en": "Multilingual publishing", "ar": "نشر متعدد اللغات" },
-      "degerler": [false, true, true]
-    },
-    {
-      "ad": { "tr": "Mobil uyum ve hız optimizasyonu", "en": "Mobile-first and speed optimisation", "ar": "توافق الجوال وتحسين السرعة" },
-      "degerler": [true, true, true]
-    },
-    {
-      "ad": { "tr": "SEO kurulumu", "en": "SEO setup", "ar": "إعداد تحسين محركات البحث" },
+      "ad": {
+        "tr": "Özellik adı",
+        "en": "Feature name",
+        "ar": "اسم الميزة"
+      },
       "degerler": [
-        { "tr": "Temel", "en": "Basic", "ar": "أساسي" },
-        { "tr": "Gelişmiş", "en": "Advanced", "ar": "متقدم" },
-        { "tr": "Gelişmiş + raporlama", "en": "Advanced + reporting", "ar": "متقدم + تقارير" }
+        false,
+        true,
+        true
       ]
     },
     {
-      "ad": { "tr": "Destek süresi", "en": "Support period", "ar": "مدة الدعم" },
+      "ad": {
+        "tr": "Özellik adı",
+        "en": "Feature name",
+        "ar": "اسم الميزة"
+      },
       "degerler": [
-        { "tr": "1 ay", "en": "1 month", "ar": "شهر واحد" },
-        { "tr": "6 ay", "en": "6 months", "ar": "6 أشهر" },
-        { "tr": "12 ay", "en": "12 months", "ar": "12 شهرًا" }
+        {
+          "tr": "Değer",
+          "en": "Value",
+          "ar": "القيمة"
+        },
+        {
+          "tr": "Değer",
+          "en": "Value",
+          "ar": "القيمة"
+        },
+        {
+          "tr": "Değer",
+          "en": "Value",
+          "ar": "القيمة"
+        }
       ]
     },
     {
-      "ad": { "tr": "Özel tasarım bileşenleri", "en": "Custom design components", "ar": "مكوّنات تصميم مخصصة" },
-      "degerler": [false, false, true]
+      "grup": {
+        "tr": "Grup adı",
+        "en": "Group name",
+        "ar": "اسم المجموعة"
+      },
+      "ad": {
+        "tr": "Özellik adı",
+        "en": "Feature name",
+        "ar": "اسم الميزة"
+      },
+      "degerler": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "ad": {
+        "tr": "Özellik adı",
+        "en": "Feature name",
+        "ar": "اسم الميزة"
+      },
+      "degerler": [
+        true,
+        true,
+        true
+      ]
     }
-  ],
-  "veri": {
-    "statik": true,
-    "dinamik": false,
-    "kaynak": "desing/data"
-  }
+  ]
 }

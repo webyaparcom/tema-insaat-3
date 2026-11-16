@@ -16,7 +16,7 @@ function pricingLang(val, lang) {
    dis baglanti, "#", "//" ve zaten "/tr/..." ile baslayan yollar aynen kalir. "#kesit" ve "?sorgu" korunur. */
 function pricingHref(url) {
   var u = url == null ? "" : String(url).trim();
-  if (!/^\/(?!\/)/.test(u) || /^\/(tr|en|ar|de|fr|ru|es|it|nl)(\/|$|[?#])/.test(u)) {
+  if (!/^\/(?!\/)/.test(u) || (typeof wmLangInfo === "function" ? (function (m) { return !!m && !wmLangInfo(m[1]).katalogDisi; })(/^\/([a-z]{2,3})(\/|$|[?#])/.exec(u)) : /^\/(tr|en|ar|de|fr|ru|es|it|nl)(\/|$|[?#])/.test(u)) /* G1: dil öneki katalogdan */) {
     return u || "#";
   }
   var tail = "";

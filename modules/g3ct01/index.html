@@ -1,304 +1,89 @@
-<div class="modulex" data-stil="--stil--">
-  <div class="modulexbody">
-    <div class="modulexcontainer">
-      <div class="modulexcontainerbody">
-        <h2 class="modulexcontainertitle">{{name}}</h2>
-        {{html}}
-      </div>
-    </div>
+<section class="modulex-iletisim-tanim-listesi{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-iletisim-tanim-listesi-ic">
+    {{fbbas}}
+    {{fbgovde}}
   </div>
-</div>
+</section>
+
 <style>
-  /* 31 Eki 2026: sabit #fff/#ebebeb/#333 → var(--mx-site-*, <eski sabit>); müşteri sitesinde token yok → eski görünüm aynen,
-     koyu mod (setting.colorScheme:"auto") sitelerde kart/zemin/yazı paletle döner (beyaz kartta beyazımsı ikon sorunu). */
-  .modulex {
-    width: 100%;
-    margin: --margin--;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
+  /* iletisim-tanim-listesi — Bilgiyi çizelge disipliniyle verir; resmî kurumlar, okullar ve hukuk büroları için ciddi ve taranabilir. */
+  .modulex-iletisim-tanim-listesi { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-iletisim-tanim-listesi *, .modulex-iletisim-tanim-listesi *::before, .modulex-iletisim-tanim-listesi *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-iletisim-tanim-listesi :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-iletisim-tanim-listesi :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-iletisim-tanim-listesi :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-iletisim-tanim-listesi :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-iletisim-tanim-listesi img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-iletisim-tanim-listesi) img { height: auto; }
+  .modulex-iletisim-tanim-listesi [hidden] { display: none !important; }
+  .modulex-iletisim-tanim-listesi :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-iletisim-tanim-listesi :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-iletisim-tanim-listesi-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-iletisim-tanim-listesi-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-iletisim-tanim-listesi--bassiz .modulex-iletisim-tanim-listesi-bas { display: none; }
+  .modulex-iletisim-tanim-listesi-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-iletisim-tanim-listesi-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-iletisim-tanim-listesi-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-iletisim-tanim-listesi-ic { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+  .modulex-iletisim-tanim-listesi-bas { position: sticky; inset-block-start: 96px; margin: 0; }
+  .modulex-iletisim-tanim-listesi--bassiz .modulex-iletisim-tanim-listesi-ic { grid-template-columns: minmax(0, 1fr); }
+  .modulex-iletisim-tanim-listesi-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-iletisim-tanim-listesi-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-iletisim-tanim-listesi-dugme:hover { transform: translateY(-2px); }
+  .modulex-iletisim-tanim-listesi-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-iletisim-tanim-listesi-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-iletisim-tanim-listesi-dugme .material-symbols-outlined { font-size: 20px; }
 
-  .modulexcontainertitle {
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--mx-site-text, #333);
-    margin: 0 0 20px 0;
-  }
-
-  .modulexcontainerlist {
-    padding: 10px;
-    display: flex;
-    border-radius: 8px;
-    border-bottom: solid 1px #ddd;
-    border-bottom-color: color-mix(in srgb, var(--mx-site-text, #333) 15%, transparent);
-    gap: 20px;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    color: --linkcolor--;
-  }
-
-  .modulexcontainerlist>div {
-    display: flex;
-    align-items: center;
-    min-width: 0; /* G3: uzun e-posta/adres 390 px'te taşmasın */
-    overflow-wrap: anywhere;
-    font-size: 20px;
-    color: --linkcolor--;
-  }
-
-  .modulexcontainerlist:hover {
-    background-color: rgba(46, 107, 255, 0.08);
-    background-color: color-mix(in srgb, var(--mx-site-text, #1b1b1b) 6%, transparent); /* koyu palette okunur */
-    border-bottom-color: --color--;
-  }
-
-  .modulexcontainer {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-  }
-
-  .modulexcontainerbody {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    background-color: var(--mx-site-surface, #fff);
-    color: var(--mx-site-text, #333);
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .modulexbody {
-    width: calc(var(--max) - 40px);
-    background-color: var(--mx-site-bg, #ebebeb);
-    border: 1px solid #dedede;
-    border-color: color-mix(in srgb, var(--mx-site-text, #333) 15%, transparent);
-    border-radius: 10px;
-    padding: 20px;
-  }
-
-  .modulexcontainerlist>span {
-    font-size: 24px;
-    color: --color--;
-  }
-
-  @media screen and (max-width: 1024px) {
-    .modulexbody {
-      width: 100%;
-      padding: 20px;
-      flex-direction: column;
-    }
-
-    .modulexcontainerbody {
-      padding: 15px;
-    }
-  }
-
-  /* W2: mobil tasma kontrolu */
+  .modulex-iletisim-tanim-listesi-dl { margin: 0; border-block-start: 2px solid --text--; }
+  .modulex-iletisim-tanim-listesi-satir { display: grid; grid-template-columns: minmax(140px, 0.45fr) minmax(0, 1fr); gap: 16px; padding: 18px 12px; border-block-end: 1px solid --cizgi--; transition: background 0.2s ease; }
+  .modulex-iletisim-tanim-listesi-satir:hover { background: color-mix(in srgb, --accent-- 6%, transparent); }
+  .modulex-iletisim-tanim-listesi-dt { display: flex; align-items: center; gap: 10px; color: --muted--; font-weight: 650; }
+  .modulex-iletisim-tanim-listesi-dikon { color: --accentInk--; font-size: 20px; }
+  .modulex-iletisim-tanim-listesi-dd { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px; margin: 0; min-width: 0; }
+  .modulex-iletisim-tanim-listesi-dd .modulex-iletisim-tanim-listesi-deger { font-size: 1.08rem; }
   @media (max-width: 768px) {
-    [class*="modulex"] {
-      max-width: 100%;
-      box-sizing: border-box;
-    }
+    .modulex-iletisim-tanim-listesi-satir { grid-template-columns: minmax(0, 1fr); gap: 6px; padding-inline: 4px; }
   }
+  .modulex-iletisim-tanim-listesi-kikon { flex: none; display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: color-mix(in srgb, --accent-- 14%, transparent); color: --accentInk--; font-size: 24px; }
+  .modulex-iletisim-tanim-listesi-ketiket { display: block; color: --muted--; font-size: 0.82rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; }
+  .modulex-iletisim-tanim-listesi-deger { color: inherit; font-weight: 650; text-decoration: none; overflow-wrap: anywhere; transition: color 0.2s ease; }
+  a.modulex-iletisim-tanim-listesi-deger:hover { color: --accentInk--; text-decoration: underline; text-underline-offset: 4px; }
+  .modulex-iletisim-tanim-listesi-eylem { display: inline-flex; align-items: center; gap: 6px; color: --accentInk--; font-weight: 700; text-decoration: none; transition: gap 0.2s ease; }
+  .modulex-iletisim-tanim-listesi-eylem:hover { gap: 10px; }
+  .modulex-iletisim-tanim-listesi-eylem .material-symbols-outlined { font-size: 18px; }
+  .modulex-iletisim-tanim-listesi-kopya { display: none; align-items: center; gap: 6px; min-height: 36px; padding: 6px 12px; border: 1px solid --cizgi--; border-radius: 999px; background: transparent; color: --text--; font: inherit; font-size: 0.85rem; font-weight: 650; transition: border-color 0.2s ease, background 0.2s ease; }
+  .modulex-iletisim-tanim-listesi--kjs .modulex-iletisim-tanim-listesi-kopya { display: inline-flex; }
+  .modulex-iletisim-tanim-listesi-kopya:hover { border-color: --accent--; }
+  .modulex-iletisim-tanim-listesi-kopya .material-symbols-outlined { font-size: 18px; }
+  .modulex-iletisim-tanim-listesi--kopyalandi { background: color-mix(in srgb, --accent-- 14%, transparent); }
+  .modulex-iletisim-tanim-listesi-sosyal { display: grid; gap: 10px; }
+  .modulex-iletisim-tanim-listesi-sbaslik { color: --muted--; font-size: 0.9rem; font-weight: 650; }
+  .modulex-iletisim-tanim-listesi-sliste { display: flex; flex-wrap: wrap; gap: 8px; }
+  .modulex-iletisim-tanim-listesi-cip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 8px 14px; border: 1px solid --cizgi--; border-radius: 999px; color: inherit; font-weight: 650; text-decoration: none; transition: border-color 0.2s ease, transform 0.2s ease; }
+  .modulex-iletisim-tanim-listesi-cip:hover { border-color: --accent--; transform: translateY(-2px); }
+  .modulex-iletisim-tanim-listesi-cikon { font-size: 18px; }
+  .modulex-iletisim-tanim-listesi-harita { position: relative; overflow: hidden; min-height: 280px; border-radius: --yuvarlak--; background: --kartBg--; }
+  .modulex-iletisim-tanim-listesi-iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .modulex-iletisim-tanim-listesi-hdesen { position: absolute; inset: 0; display: grid; place-items: center; background-color: color-mix(in srgb, --accent-- 8%, --kartBg--); background-image: linear-gradient(color-mix(in srgb, --text-- 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, --text-- 7%, transparent) 1px, transparent 1px), radial-gradient(circle at 30% 40%, color-mix(in srgb, --accent-- 18%, transparent) 0 18%, transparent 19%); background-size: 36px 36px, 36px 36px, 100% 100%; }
+  .modulex-iletisim-tanim-listesi-pin { color: --accentInk--; font-size: 56px; animation: modulex-iletisim-tanim-listesi-zipla 2.4s ease-in-out infinite; }
+  @keyframes modulex-iletisim-tanim-listesi-zipla { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .modulex-iletisim-tanim-listesi-hyol { position: absolute; inset-block-end: 16px; inset-inline-start: 16px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 16px; border-radius: 999px; background: --bg--; color: --text--; font-weight: 700; text-decoration: none; box-shadow: 0 6px 20px color-mix(in srgb, --text-- 16%, transparent); transition: transform 0.2s ease; }
+  .modulex-iletisim-tanim-listesi-hyol:hover { transform: translateY(-2px); }
+  .modulex-iletisim-tanim-listesi-hyol .material-symbols-outlined { font-size: 18px; color: --accentInk--; }
 
-  /* W2: erisilebilirlik — animasyon kapatma */
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-iletisim-tanim-listesi :is(.modulex-iletisim-tanim-listesi-baslik, .modulex-iletisim-tanim-listesi-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-iletisim-tanim-listesi-baslik { line-height: 1.35; }
+  @media (max-width: 1024px) {
+    .modulex-iletisim-tanim-listesi-ic { grid-template-columns: minmax(0, 1fr); }
+    .modulex-iletisim-tanim-listesi-bas { position: static; margin-block-end: 32px; }
+  }
+  @media (max-width: 768px) {
+    .modulex-iletisim-tanim-listesi { padding-inline: 16px; }
+  }
   @media (prefers-reduced-motion: reduce) {
-    [class*="modulex"],
-    [class*="modulex"] * {
-      animation: none !important;
-      transition: none !important;
-    }
-  }
-
-  /* ---- G8-D varyantlar (31 Eki 2026): desing.stil → kök data-stil. "" = klasik (yukarıdaki kurallar aynen uygulanır).
-     Varyant renkleri yalnız var(--mx-site-*) token / yarı saydam katman — koyu mod paletten gelir, sabit renk yok. ---- */
-
-  /* kartli — her bilgi satırı ortalı bir kart; 3 sütun → 2 → 1 */
-  [data-stil="kartli"] .modulexbody {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-  }
-
-  [data-stil="kartli"] .modulexcontainer {
-    padding: 0;
-  }
-
-  [data-stil="kartli"] .modulexcontainerbody {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-    padding: 0;
-    background-color: transparent;
-    box-shadow: none;
-    color: var(--mx-site-text, #1b1b1b);
-  }
-
-  [data-stil="kartli"] .modulexcontainertitle {
-    grid-column: 1 / -1;
-    text-align: center;
-    margin: 0 0 8px;
-    color: var(--mx-site-text, #1b1b1b);
-  }
-
-  [data-stil="kartli"] .modulexcontainerlist {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 14px;
-    padding: 28px 20px;
-    min-height: 44px;
-    border: 1px solid color-mix(in srgb, var(--mx-site-text, #1b1b1b) 12%, transparent);
-    border-radius: var(--mx-radius-lg, 16px);
-    background-color: var(--mx-site-surface, #fff);
-    color: var(--mx-site-text, #1b1b1b);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  [data-stil="kartli"] .modulexcontainerlist:hover {
-    background-color: var(--mx-site-surface, #fff);
-    border-color: color-mix(in srgb, var(--mx-site-primary, #2563eb) 45%, transparent);
-    transform: translateY(-4px);
-    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.1);
-  }
-
-  [data-stil="kartli"] .modulexcontainerlist > span {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    background-color: color-mix(in srgb, var(--mx-site-primary, #2563eb) 14%, transparent);
-    color: var(--mx-site-primary, #2563eb);
-  }
-
-  [data-stil="kartli"] .modulexcontainerlist > div {
-    font-size: 17px;
-    line-height: 1.5;
-    color: inherit;
-  }
-
-  /* koyu-panel — başlık sol koyu panelde (primary / primary-contrast çifti), satırlar sağda ayraçlı liste */
-  [data-stil="koyu-panel"] .modulexbody {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-  }
-
-  [data-stil="koyu-panel"] .modulexcontainer {
-    padding: 0;
-  }
-
-  [data-stil="koyu-panel"] .modulexcontainerbody {
-    display: grid;
-    grid-template-columns: minmax(220px, 1fr) 2fr;
-    grid-auto-flow: dense;
-    gap: 0;
-    padding: 0;
-    overflow: hidden;
-    border-radius: var(--mx-radius-lg, 16px);
-    border: 1px solid color-mix(in srgb, var(--mx-site-text, #1b1b1b) 10%, transparent);
-    background-color: var(--mx-site-surface, #fff);
-    color: var(--mx-site-text, #1b1b1b);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-  }
-
-  [data-stil="koyu-panel"] .modulexcontainertitle {
-    grid-column: 1;
-    grid-row: 1 / span 12;
-    margin: 0;
-    padding: 40px 28px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    font-size: 30px;
-    line-height: 1.2;
-    background-color: var(--mx-site-primary, #1e3046);
-    color: var(--mx-site-primary-contrast, #fff);
-  }
-
-  [data-stil="koyu-panel"] .modulexcontainertitle::after {
-    content: "";
-    position: absolute;
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    inset-inline-end: -60px;
-    bottom: -60px;
-    background-color: rgba(255, 255, 255, 0.1);
-    pointer-events: none;
-  }
-
-  [data-stil="koyu-panel"] .modulexcontainerlist {
-    grid-column: 2;
-    padding: 20px 26px;
-    gap: 16px;
-    border-radius: 0;
-    border-bottom: 1px solid color-mix(in srgb, var(--mx-site-text, #1b1b1b) 10%, transparent);
-    color: var(--mx-site-text, #1b1b1b);
-    transition: background-color 0.25s ease, padding 0.25s ease;
-  }
-
-  [data-stil="koyu-panel"] .modulexcontainerlist:last-child {
-    border-bottom: 0;
-  }
-
-  [data-stil="koyu-panel"] .modulexcontainerlist:hover {
-    background-color: color-mix(in srgb, var(--mx-site-primary, #2563eb) 7%, transparent);
-    border-bottom-color: color-mix(in srgb, var(--mx-site-text, #1b1b1b) 10%, transparent);
-    padding-inline-start: 32px;
-  }
-
-  [data-stil="koyu-panel"] .modulexcontainerlist > span {
-    color: var(--mx-site-primary, #2563eb);
-  }
-
-  [data-stil="koyu-panel"] .modulexcontainerlist > div {
-    font-size: 18px;
-    color: inherit;
-  }
-
-  @media screen and (max-width: 1024px) {
-    [data-stil="kartli"] .modulexcontainerbody {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    [data-stil="kartli"] .modulexcontainerbody {
-      grid-template-columns: 1fr;
-    }
-
-    [data-stil="koyu-panel"] .modulexcontainerbody {
-      grid-template-columns: 1fr;
-    }
-
-    [data-stil="koyu-panel"] .modulexcontainertitle {
-      grid-row: auto;
-      padding: 28px 22px;
-      font-size: 26px;
-    }
-
-    [data-stil="koyu-panel"] .modulexcontainerlist {
-      grid-column: 1;
-      padding: 16px 20px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    [data-stil="kartli"] .modulexcontainerlist:hover,
-    [data-stil="koyu-panel"] .modulexcontainerlist:hover {
-      transform: none;
-      padding-inline-start: 26px;
-    }
+    .modulex-iletisim-tanim-listesi *, .modulex-iletisim-tanim-listesi *::before, .modulex-iletisim-tanim-listesi *::after { animation: none !important; transition: none !important; }
   }
 </style>

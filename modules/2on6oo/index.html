@@ -1,149 +1,205 @@
-<section class="modulex-tline">
-  <div class="modulex-tline-container">
-    <div class="modulex-tline-header">
-      <div class="modulex-tline-badge">{{badge}}</div>
-      <h2 class="modulex-tline-title">{{title}}</h2>
-      <p class="modulex-tline-desc">{{description}}</p>
-    </div>
-    <div class="modulex-tline-list">
-      {{html}}
-    </div>
+<section class="modulex-zry{{zrysinif}}" {{zryetiket}}>
+  <div class="modulex-zry-ic">
+    <header class="modulex-zry-bas">
+      <div class="modulex-zry-bas-metin">
+        {{zryust}}
+        {{zrybaslik}}
+        {{zrymetin}}
+      </div>
+      {{zrykontrol}}
+    </header>
+  </div>
+  <div class="modulex-zry-ray" tabindex="0">
+    <ol class="modulex-zry-liste">{{zryadimlar}}</ol>
+  </div>
+  <div class="modulex-zry-ic">
+    <div class="modulex-zry-ilerleme" aria-hidden="true"><span class="modulex-zry-ilerleme-dolu"></span></div>
   </div>
 </section>
 
 <style>
-  .modulex-tline {
-    width: 100%;
-    padding: 80px 20px;
-    background: --bgcolor--;
+  /* zaman-ray — yatay ray (15 Kas 2026, G4 · D17). timeline-1 dikey çizelge, surec-adimlar numaralı sütunlardır; bu modül sayfa
+     kenarına taşan yatay ray: yıl/adım etiketi üstte, rayı kesen nokta, altında kart. scroll-snap + önceki/sonraki + ilerleme çubuğu.
+     Renkler desing'den; mantıksal CSS (ray RTL'de sağdan başlar). */
+  .modulex-zry {
     box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    padding: clamp(56px, 8vw, 104px) 0;
+    background: --bg--;
+    color: --text--;
+    font-size: 1rem;
+    font-family: var(--mx-font-sans, inherit);
   }
-
-  .modulex-tline-container {
-    max-width: --max--;
-    margin: 0 auto;
+  .modulex-zry *,
+  .modulex-zry *::before,
+  .modulex-zry *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-zry :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  .modulex-zry-ic { max-width: --max--; margin-inline: auto; padding-inline: 20px; }
+  .modulex-zry-bas { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-block-end: 36px; }
+  .modulex-zry--bassiz .modulex-zry-bas { display: none; }
+  .modulex-zry-bas-metin { max-width: 680px; }
+  .modulex-zry-ust { margin: 0 0 12px; color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-zry-baslik { margin: 0; font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.03em; line-height: 1.1; }
+  .modulex-zry-metin { margin: 14px 0 0; color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-zry-kontrol { display: flex; flex-shrink: 0; gap: 10px; }
+  .modulex-zry-dugme {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border: 1px solid --cizgi--;
+    border-radius: 50%;
+    background: --kartBg--;
+    color: --text--;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
   }
+  .modulex-zry-dugme:hover:not(:disabled) { background: --accent--; border-color: --accent--; color: --accentText--; }
+  .modulex-zry-dugme:focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-zry-dugme:disabled { opacity: 0.35; cursor: default; }
 
-  .modulex-tline-header {
-    text-align: center;
-    margin-bottom: 48px;
+  .modulex-zry-ray {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: max(20px, calc((100% - --max--) / 2 + 20px));
+    scrollbar-width: none;
   }
-
-  .modulex-tline-badge {
-    display: inline-block;
-    padding: 6px 18px;
-    background: --accent--;
-    color: --accentText--; /* 31 Eki: sabit beyaz → token */
-    border-radius: 50px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-
-  .modulex-tline-title {
-    font-size: 36px;
-    font-weight: 800;
-    color: --titlecolor--;
-    margin: 0 0 12px;
-  }
-
-  .modulex-tline-desc {
-    font-size: 16px;
-    color: --textcolor--;
-    max-width: 640px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-
-  .modulex-tline-list {
+  .modulex-zry-ray::-webkit-scrollbar { display: none; }
+  .modulex-zry-ray:focus-visible { outline: 3px solid --accent--; outline-offset: -3px; }
+  .modulex-zry-liste {
     position: relative;
-    max-width: 760px;
-    margin: 0 auto;
-    padding-left: 34px;
+    display: flex;
+    gap: 0;
+    width: max-content;
+    margin: 0;
+    padding-block: 0;
+    padding-inline: max(20px, calc((100vw - --max--) / 2 + 20px));
+    list-style: none;
   }
-
-  .modulex-tline-list::before {
+  .modulex-zry-adim {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: clamp(260px, 30vw, 360px);
+    padding-inline-end: 28px;
+    scroll-snap-align: start;
+    animation: modulex-zry-gel 0.6s calc(var(--zry-sira, 0) * 0.08s) cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .modulex-zry-adim::before {
     content: "";
     position: absolute;
-    left: 10px;
-    top: 6px;
-    bottom: 6px;
-    width: 2px;
-    background: --linecolor--;
+    inset-block-start: calc(2.6rem + 15px);
+    inset-inline: 0;
+    height: 2px;
+    background: --cizgi--;
   }
-
-  .modulex-tline-item {
-    position: relative;
-    padding: 0 0 32px 18px;
-    animation: tlineIn 0.5s ease both;
-  }
-
-  .modulex-tline-item:last-child {
-    padding-bottom: 0;
-  }
-
-  @keyframes tlineIn {
-    from { opacity: 0; transform: translateX(-14px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-
-  .modulex-tline-dot {
-    position: absolute;
-    left: -32px;
-    top: 4px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: --accent--;
-    border: 3px solid --bgcolor--;
-    box-shadow: 0 0 0 2px --accent--;
-  }
-
-  .modulex-tline-year {
-    display: inline-block;
-    padding: 3px 12px;
-    background: --accent--;
-    color: --accentText--; /* 31 Eki: sabit beyaz → token */
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .modulex-tline-item-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: --titlecolor--;
-    margin: 0 0 6px;
-  }
-
-  .modulex-tline-item-text {
-    font-size: 14px;
-    line-height: 1.7;
-    color: --textcolor--;
+  .modulex-zry-adim:last-child::before { inset-inline-end: calc(100% - 32px); }
+  .modulex-zry-etiket {
     margin: 0;
+    color: --accentInk--;
+    font-family: var(--mx-font-heading, inherit);
+    font-size: 2rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+    line-height: 2.6rem;
   }
+  .modulex-zry-nokta {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-block: 0 22px;
+    border: 2px solid --accent--;
+    border-radius: 50%;
+    background: --bg--;
+    color: --accent--;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+  .modulex-zry-nokta::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: --accent--; }
+  .modulex-zry-nokta:has(.material-symbols-outlined)::after { display: none; }
+  .modulex-zry-nokta .material-symbols-outlined { font-size: 18px; }
+  .modulex-zry-adim:hover .modulex-zry-nokta { background: --accent--; color: --accentText--; transform: scale(1.12); }
+  .modulex-zry-kart {
+    flex: 1;
+    padding: 22px;
+    border: 1px solid --cizgi--;
+    border-radius: --yuvarlak--;
+    background: --kartBg--;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .modulex-zry-adim:hover .modulex-zry-kart { transform: translateY(-4px); border-color: --accent--; }
+  .modulex-zry-gorsel { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; margin-block-end: 16px; border-radius: calc(--yuvarlak-- * 0.6); object-fit: cover; }
+  .modulex-zry-adim-baslik { margin: 0; font-size: 1.15rem; font-weight: 700; line-height: 1.35; }
+  .modulex-zry-adim-metin { margin: 10px 0 0; color: --muted--; line-height: 1.65; }
 
+  .modulex-zry-ilerleme { position: relative; height: 3px; margin-block-start: 32px; border-radius: 3px; background: --cizgi--; overflow: hidden; }
+  .modulex-zry-ilerleme-dolu {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: calc(var(--zry-oran, 0.2) * 100%);
+    min-width: 12%;
+    border-radius: 3px;
+    background: --accent--;
+    transition: width 0.2s linear;
+  }
+  @keyframes modulex-zry-gel { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+  [dir="rtl"] .modulex-zry-adim { animation-name: modulex-zry-gel-rtl; }
+  @keyframes modulex-zry-gel-rtl { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: none; } }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-zry-baslik { letter-spacing: 0; line-height: 1.35; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-zry-ust { letter-spacing: 0; }
+
+  @media (max-width: 1024px) {
+    .modulex-zry-adim { width: clamp(250px, 44vw, 340px); }
+  }
   @media (max-width: 768px) {
-    .modulex-tline {
-      padding: 48px 14px;
-    }
-
-    .modulex-tline-title {
-      font-size: 26px;
-    }
-
-    [class*="modulex"] {
-      max-width: 100%;
-      box-sizing: border-box;
-    }
+    .modulex-zry-bas { flex-direction: column; align-items: flex-start; }
+    .modulex-zry-adim { width: 78vw; padding-inline-end: 18px; }
+    .modulex-zry-etiket { font-size: 1.6rem; }
   }
-
   @media (prefers-reduced-motion: reduce) {
-    [class*="modulex"],
-    [class*="modulex"] * {
-      animation: none !important;
-      transition: none !important;
-    }
+    .modulex-zry-adim,
+    .modulex-zry * { animation: none !important; transition: none !important; }
+    .modulex-zry-ray { scroll-behavior: auto; }
   }
 </style>
+
+<script>
+  (() => {
+    const kok = document.querySelector(".modulex-zry");
+    if (!kok || kok.dataset.zryHazir) return;
+    kok.dataset.zryHazir = "1";
+    const ray = kok.querySelector(".modulex-zry-ray");
+    const dolu = kok.querySelector(".modulex-zry-ilerleme-dolu");
+    const dugmeler = [...kok.querySelectorAll(".modulex-zry-dugme")];
+    if (!ray) return;
+    const rtl = () => getComputedStyle(ray).direction === "rtl";
+    const azHareket = window.matchMedia("(prefers-reduced-motion: reduce)");
+    /* RTL'de scrollLeft 0 → negatif; konumu her iki yönde 0..1 orana çevir */
+    const durum = () => {
+      const max = ray.scrollWidth - ray.clientWidth;
+      const konum = Math.abs(ray.scrollLeft);
+      const oran = max > 0 ? konum / max : 1;
+      kok.style.setProperty("--zry-oran", String(Math.max(ray.clientWidth / Math.max(1, ray.scrollWidth), oran)));
+      dugmeler.forEach((d) => { d.disabled = Number(d.dataset.yon) < 0 ? konum <= 2 : konum >= max - 2; });
+    };
+    dugmeler.forEach((d) => d.addEventListener("click", () => {
+      const adim = kok.querySelector(".modulex-zry-adim");
+      const genislik = adim ? adim.getBoundingClientRect().width : ray.clientWidth * 0.8;
+      ray.scrollBy({ left: Number(d.dataset.yon) * genislik * (rtl() ? -1 : 1), behavior: azHareket.matches ? "auto" : "smooth" });
+    }));
+    ray.addEventListener("scroll", durum, { passive: true });
+    window.addEventListener("resize", durum, { passive: true });
+    durum();
+  })();
+</script>

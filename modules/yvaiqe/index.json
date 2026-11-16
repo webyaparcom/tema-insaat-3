@@ -1,69 +1,52 @@
 {
-  "name": "Sayaç Şeridi (Stats 2)",
-  "description": "Tam genişlik renkli şerit (bgcolor/textcolor ÇİFT token), 3–5 sayaç: sayılar görünürken yukarı sayar (IntersectionObserver; reduced-motion ya da JS yoksa son değer doğrudan), önek/sonek (+, %, ₺), kısa açıklama, isteğe bağlı CSS desen (noktalar | cizgiler | yok). Sayı biçimi dile göre (Arapçada Latin hane). desing.stil: serit | kartli | ayrik-cizgili. Veri: data[] = [{deger, onek, sonek, ondalik?, etiket{tr,en,ar}, aciklama{}, ikon?}]. Koyu mod paletten; RTL mantıksal CSS.",
+  "name": "Sayaç Cümle — rakamlar akan dev bir cümle içinde",
+  "description": "Rakam + etiket çiftleri tek bir dev, akan paragrafta (ayraçlarla) dizilir; rakamlar vurgu renginde, hover'da altı çizilir. Notlar başlığa (title) girer. Izgara ya da kart yok: tipografik dev yazı; rakamlar bir metnin kelimeleri gibi okunur (manifesto tonu). Sayılar sayfa diliyle biçimlenir (Intl), metinler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Veri yoksa blok basılmaz.",
   "version": "1.0.0",
-  "icon": "insights",
+  "icon": "text_fields",
   "category": "stats",
-  "tags": ["istatistik", "sayaç", "stats", "counter", "şerit", "ar"],
-  "desing": {
-    "stil": "serit",
-    "desen": "noktalar",
-    "max": "1200px",
-    "bgcolor": "var(--mx-site-primary, #2563eb)",
-    "textcolor": "var(--mx-site-primary-contrast, #ffffff)",
-    "mutedcolor": "color-mix(in srgb, var(--mx-site-primary-contrast, #ffffff) 90%, var(--mx-site-primary, #2563eb))",
-    "bordercolor": "color-mix(in srgb, var(--mx-site-primary-contrast, #ffffff) 26%, transparent)",
-    "radius": "16px",
-    "sure": 1000,
-    "title": {
-      "tr": "Rakamlarla biz",
-      "en": "By the numbers",
-      "ar": "نحن بالأرقام"
-    },
-    "description": {
-      "tr": "",
-      "en": "",
-      "ar": ""
-    }
-  },
-  "data": [
-    {
-      "deger": 1250,
-      "onek": "",
-      "sonek": "+",
-      "ikon": "task_alt",
-      "etiket": { "tr": "Tamamlanan proje", "en": "Completed projects", "ar": "مشروع منجز" },
-      "aciklama": { "tr": "2012'den bu yana", "en": "Since 2012", "ar": "منذ عام 2012" }
-    },
-    {
-      "deger": 98,
-      "onek": "%",
-      "sonek": "",
-      "ikon": "sentiment_satisfied",
-      "etiket": { "tr": "Müşteri memnuniyeti", "en": "Customer satisfaction", "ar": "رضا العملاء" },
-      "aciklama": { "tr": "Teslim sonrası anket", "en": "Post-delivery survey", "ar": "استبيان ما بعد التسليم" }
-    },
-    {
-      "deger": 14,
-      "onek": "",
-      "sonek": "",
-      "ikon": "workspace_premium",
-      "etiket": { "tr": "Yıllık deneyim", "en": "Years of experience", "ar": "سنة من الخبرة" },
-      "aciklama": { "tr": "Aynı çekirdek ekip", "en": "Same core team", "ar": "الفريق الأساسي نفسه" }
-    },
-    {
-      "deger": 4.9,
-      "ondalik": 1,
-      "onek": "",
-      "sonek": "/5",
-      "ikon": "star",
-      "etiket": { "tr": "Ortalama puan", "en": "Average rating", "ar": "متوسط التقييم" },
-      "aciklama": { "tr": "Google yorumları", "en": "Google reviews", "ar": "مراجعات Google" }
-    }
+  "subCategory": "sentence",
+  "tags": [
+    "stats",
+    "typographic",
+    "sentence",
+    "inline",
+    "rtl",
+    "fabrika"
   ],
+  "desing": {
+    "max": "1200px",
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 68%, var(--mx-site-bg, #ffffff))",
+    "kartBg": "var(--mx-site-surface, #f6f7f9)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 12%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "vurguBg": "var(--mx-site-primary, #2563eb)",
+    "vurguText": "var(--mx-site-primary-contrast, #ffffff)",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
   "veri": {
     "statik": true,
     "dinamik": false,
-    "kaynak": "desing/data"
+    "kaynak": "data",
+    "alanlar": {
+      "sayi": "sayı (zorunlu; 1200 · \"4.9\")",
+      "onek": "önek (dil sözlüğü; ör. «%»)",
+      "sonek": "sonek (dil sözlüğü; ör. «+», «/5»)",
+      "etiket": "etiket (dil sözlüğü, zorunlu)",
+      "metin": "kısa not (dil sözlüğü)",
+      "ikon": "Material Symbols adı",
+      "ondalik": "ondalık basamak (yoksa sayıdan)",
+      "max": "oran tavanı (halka/çubuk/dolgu; yoksa % → 100, değilse listedeki en büyük)"
+    }
   }
 }

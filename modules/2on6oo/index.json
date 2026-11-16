@@ -1,68 +1,33 @@
 {
-  "name": "Zaman Çizelgesi 1",
-  "desing": {
-    "max": "1200px",
-    "bgcolor": "#ffffff",
-    "titlecolor": "#1e293b",
-    "textcolor": "#475569",
-    "accent": "#DE6D26",
-    "linecolor": "#e2e8f0",
-    "badge": {
-      "tr": "Tarihçe",
-      "en": "Timeline"
-    },
-    "title": {
-      "tr": "Yolculuğumuz",
-      "en": "Our Journey"
-    },
-    "description": {
-      "tr": "Kuruluşumuzdan bugüne önemli dönüm noktalarımız.",
-      "en": "Key milestones from our founding to today."
-    },
-    "accentText": "#ffffff"
-  },
-  "data": [
-    {
-      "year": "2015",
-      "title": {
-        "tr": "Kuruluş",
-        "en": "Founded"
-      },
-      "text": {
-        "tr": "Küçük bir ekiple ilk ofisimizde yola çıktık.",
-        "en": "We started in our first office with a small team."
-      }
-    },
-    {
-      "year": "2019",
-      "title": {
-        "tr": "Büyüme",
-        "en": "Growth"
-      },
-      "text": {
-        "tr": "Ekibimizi büyütüp yeni hizmet alanlarına açıldık.",
-        "en": "We grew the team and expanded into new service areas."
-      }
-    },
-    {
-      "year": "2024",
-      "title": {
-        "tr": "Bugün",
-        "en": "Today"
-      },
-      "text": {
-        "tr": "Yüzlerce tamamlanan projeyle sektörde güvenilir bir çözüm ortağıyız.",
-        "en": "With hundreds of completed projects, we are a trusted solution partner."
-      }
-    }
-  ],
-  "category": "timeline",
-  "description": "Zaman çizelgesi modülü. Kurumsal tarihçe, süreç adımları veya yol haritasını dikey çizgi + yıl rozetiyle listeler. Çok dilli başlık/metin ve animasyonlu giriş içerir.",
+  "name": "Zaman Rayı — yatay kaydırmalı çizelge / süreç",
+  "description": "timeline-1 (dikey çizelge) / surec-adimlar (numaralı sütunlar) görsel alternatifi: sayfa kenarına taşan yatay ray — üstte büyük yıl/adım etiketi, rayı kesen nokta (ikonlu olabilir), altında kart (görsel ops.). scroll-snap, önceki/sonraki düğmeleri, ilerleme çubuğu; klavyeyle kaydırılabilir. etiket boşsa 01 02 … (süreç kipi). Metinler dil sözlüğü; etiketler lang.json; renkler desing + var(--mx-site-*); mantıksal CSS → RTL'de ray sağdan başlar. Veri yoksa blok basılmaz.",
   "version": "1.0.0",
   "icon": "timeline",
+  "category": "timeline",
+  "subCategory": "horizontal",
+  "tags": ["timeline", "process", "steps", "history", "horizontal", "scroll-snap", "rtl"],
+  "desing": {
+    "max": "1240px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "yuvarlak": "20px",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 66%, var(--mx-site-bg, #ffffff))",
+    "kartBg": "var(--mx-site-surface, #f6f7f9)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 14%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
   "veri": {
     "statik": true,
     "dinamik": false,
-    "kaynak": "desing/data"
+    "kaynak": "data",
+    "alanlar": { "etiket": "dil sözlüğü (yıl / adım adı; boşsa 01 02 …)", "baslik": "dil sözlüğü (zorunlu)", "metin": "dil sözlüğü", "ikon": "Material Symbols adı", "img": "görsel yolu" }
   }
 }
