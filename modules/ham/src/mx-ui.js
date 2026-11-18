@@ -525,6 +525,32 @@
     return false;
   }
 
+  /* Açılır listeye taşınan modül bağlantısı çoğu kez yalnız «TR» / bayrak taşır (menu-slider-3 · menu-5 …): 24 dilde kodlar
+   * tek başına okunmaz. Sunucu açılır kipi (langBar.js) «KOD + dilin kendi adı» basar; aynısı burada Intl.DisplayNames ile
+   * (dilin kendi dilinde: Deutsch, Русский). Bağlantı zaten ad taşıyorsa (metin koddan uzunsa) dokunulmaz. (k8u0, 17 Kas 2026) */
+  function mxLangLabel(a) {
+    if (!a || a.querySelector(".wm-lang-name")) return;
+    var kod = (a.getAttribute("hreflang") || "").trim();
+    if (!kod) return;
+    var metin = (a.textContent || "").trim();
+    if (metin && metin.toLowerCase() !== kod.toLowerCase()) return;
+    var ad = "";
+    try { ad = new Intl.DisplayNames([kod], { type: "language" }).of(kod) || ""; } catch (e) { ad = ""; }
+    if (!ad || ad.toLowerCase() === kod.toLowerCase()) return;
+    ad = ad.charAt(0).toLocaleUpperCase(kod) + ad.slice(1);
+    if (metin && !a.querySelector("img")) {
+      a.textContent = "";
+      var c = document.createElement("span");
+      c.className = "wm-lang-code";
+      c.textContent = kod.toUpperCase();
+      a.appendChild(c);
+    }
+    var n = document.createElement("span");
+    n.className = "wm-lang-name";
+    n.textContent = ad;
+    a.appendChild(n);
+  }
+
   function mxLangConvert(ul, links) {
     var act = mxLangActiveLink(links);
     var li = document.createElement("li");
@@ -551,6 +577,7 @@
     menu.className = "wm-lang-menu";
     var olds = Array.prototype.slice.call(ul.children);
     for (var i = 0; i < olds.length; i++) menu.appendChild(olds[i]);
+    for (var j = 0; j < links.length; j++) mxLangLabel(links[j]);
     li.appendChild(btn);
     li.appendChild(menu);
     ul.appendChild(li);
